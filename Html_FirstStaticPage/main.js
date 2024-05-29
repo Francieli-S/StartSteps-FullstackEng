@@ -63,7 +63,9 @@ const inputTask = document.getElementById('task-input')
 const listTasks = document.getElementById('task-list')
 
 function addTask(taskText) {
-  console.log('hi');
+  // listTasks.value = []
+  // console.log('hi', listTasks.value);
+  
   // create parent div elem and give it a class name:
   const taskItem = document.createElement('div')
   taskItem.className = 'task-item'
@@ -75,13 +77,22 @@ function addTask(taskText) {
   // create a delete button:
   const deleteButton = document.createElement('button')
   deleteButton.innerText = 'Done'
+  deleteButton.addEventListener('click', () => {
+    taskItem.remove()
+  })
+
+  taskItem.appendChild(taskTextElement)
+  taskItem.appendChild(deleteButton)
+  listTasks.appendChild(taskItem)  
 }
 
 buttonAddTask.addEventListener('click', () => {
   if(inputTask.value !== '') {
     addTask(inputTask.value)
+  } else {
+    alert('You should enter a task.')    
   }
-  // alert('You should enter a task.')
+  inputTask.value = ''
 })
 
 

@@ -56,6 +56,23 @@ buttonElemSmallerBigger.addEventListener('click', () => {
 })
 
 // Task 4 Quote generation
+const quotes = [
+  {
+      text: "The only limit to our realization of tomorrow will be our doubts of today.",
+      author: "Franklin D. Roosevelt"
+  },
+  {
+      text: "The only way to do great work is to love what you do.",
+      author: "Steve Jobs"
+  },
+  {
+      text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      author: "Winston Churchill"
+  }
+];
+
+
+
 
 // Task 5 To do list
 const buttonAddTask = document.getElementById('task-add')
@@ -65,7 +82,7 @@ const listTasks = document.getElementById('task-list')
 function addTask(taskText) {
   // listTasks.value = []
   // console.log('hi', listTasks.value);
-  
+
   // create parent div elem and give it a class name:
   const taskItem = document.createElement('div')
   taskItem.className = 'task-item'

@@ -1,5 +1,4 @@
 // Task 3 Calculate the Sum of two number:
-
 const inputOne = document.getElementById('input-one');
 const inputTwo = document.getElementById('input-two');
 const buttonSum = document.getElementById('button-sum');
@@ -19,3 +18,16 @@ buttonSum.addEventListener('click', () => {
   inputOne.value = ''
   inputTwo.value = ''
 });
+
+// Task 4 Generate random number:
+
+const buttonGenerate = document.getElementById('button-generate');
+const displayRandomNum = document.getElementById('random-num');
+
+const generateRandomNumber = () => {
+   return (Math.floor(Math.random() * 100) + 1); 
+}
+
+buttonGenerate.addEventListener('click', () => {
+  displayRandomNum.innerText = generateRandomNumber()
+})

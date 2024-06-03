@@ -35,6 +35,7 @@ buttonGenerate.addEventListener('click', () => {
 // Task 5 Change Bg colour
 const buttonDarkMode = document.getElementById('toggle-bg');
 const bodyBg = document.getElementById('color');
+// Manage to select the class for the task divs and change their bg too
 
 let darkMode = false;
 

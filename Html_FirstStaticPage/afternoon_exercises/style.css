@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background-color: white;
+  font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+}
+
+#icon {
+  width: 100px;
+  align-self: center;
+}
+
+#icon:hover {
+  width: 150px;
+}
+
+.tasks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+h2 > span {
+  color: rgb(12, 173, 138);
+}
+
+.task {
+  width: 25%;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.3);
+}
+
+.task > a {
+  text-decoration: none;
+}
+
+button {
+  width: 200px;
+  border: none;
+  background-color: rgb(12, 173, 138);
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+}
+
+button:hover {
+  background-color: rgb(112, 224, 200);
+}
+
+#input-one,
+#input-two {
+  width: 200px;
+  border-radius: 3px;
+  padding: 10px 0px 3px 5px;
+  font-size: 0.6em;
+  transition: 0.5s;
+  border: 0px solid;
+}
+
+#input-one::placeholder,
+#input-two::placeholder {
+  color: rgb(181, 178, 178);
+}
+
+/* input:focus {
+  outline: none;
+  border: 1px solid brown;
+} */
+
+#input-one:focus {
+  outline: none;
+  border: 1px solid brown;
+}
+
+@media only screen and (max-width: 1130px) and (min-width: 768px) {
+  .task {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .task {
+    width: 90%;
+  }
+}

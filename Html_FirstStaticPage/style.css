@@ -1,0 +1,30 @@
+body {
+  background-color: aquamarine;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: bisque;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 393px) {
+  body {
+    background-color:azure
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

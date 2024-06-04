@@ -46,22 +46,81 @@ h2 > span {
   box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.3);
 }
 
-.task > a {
-  text-decoration: none;
+/* Task 1:  */
+.display-result {
+  font-size: 3em;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 
-button {
-  width: 200px;
+.btn {
+  width: 80px;
   border: none;
   background-color: rgb(12, 173, 138);
-  border-radius: 20px;
-  padding: 10px;
+  border-radius: 15px;
+  padding: 10px 30px;
   color: white;
+  font-size: 0.6em;
 }
 
-button:hover {
+.btn:hover {
   background-color: rgb(112, 224, 200);
 }
+
+/* Task 2: */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+form label {
+  margin-right: 10px;
+}
+
+form input {
+  width: 200px;
+  padding: 5px;
+}
+
+.submit-btn {
+  border: none;
+  background-color: rgb(12, 173, 138);
+  border-radius: 15px;
+  padding: 10px 30px;
+  color: white;
+  font-size: 0.6em;
+}
+
+.submit-btn:hover {
+  background-color: rgb(112, 224, 200);
+}
+
+/* Bonus 1: */
+.flowers {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+img {
+  width: 50px;
+}
+
+
+
+
+
+
 
 @media only screen and (max-width: 1130px) and (min-width: 768px) {
   .task {

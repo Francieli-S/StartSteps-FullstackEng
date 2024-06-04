@@ -11,12 +11,43 @@
     <h1>Afternoon 3th May</h1>
     <div class="tasks">
       <div class="task">
-        <h2><span>Task 1:</span><br>Basic Counter</h2>
-        <button id="increment-btn">Increment</button>
-        <div id="count">0</div>
+        <h2><span>Task 1:</span><br />Basic Counter</h2>
+        <div class="display-result">
+          <p id="count">0</p>
+          <button class="btn" id="increment-btn">+</button>
+          <button class="btn" id="decrement-btn">-</button>
+        </div>
       </div>
-
-      
+      <div class="task">
+        <h2><span>Task 2:</span><br />Simple Form Validation</h2>
+        <form action="">
+          <label for="input-name"
+            >Name:
+            <input id="input-name" type="text" required />
+          </label>
+          <label for="input-email"
+            >Email:
+            <input id="input-email" type="email" required />
+          </label>
+          <button class="submit-btn" id="submit-btn" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="task">
+        <h2><span>Bonus 1:</span><br />Interactive Image Gallery</h2>
+        <div id="flowers" class="flowers">
+          <button>
+            <img id="flower1" src="./images/daisy.png" alt="flower" />
+          </button>
+          <button>
+            <img id="flower2" src="./images/flower.png" alt="flower" />
+          </button>
+          <button>
+            <img id="flower3" src="./images/flower_yellow.png" alt="flower" />
+          </button>
+        </div>
+      </div>
     </div>
   </body>
 </html>

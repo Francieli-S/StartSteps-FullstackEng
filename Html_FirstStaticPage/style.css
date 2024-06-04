@@ -1,11 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
-  background-color: aquamarine;
+  background-color: #ffecd1;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar {
+header {
   display: flex;
-  justify-content: space-around
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
 }
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  font-family: 'Raleway', sans-serif;
+}
+
+nav a {
+text-decoration: none;
+cursor: pointer;
+}
+
+main {
+  display: flex;
+  gap: 30px;
+  padding: 10px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-image {
+  width: 80vw;
+}
+
+/* .order-btn {
+  position: absolute;
+  top: 60%;
+  left: 21%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.order-btn button {
+  padding: 20px 40px;
+} */
 
 @media only screen and (max-width: 768px) {
   body {
@@ -23,7 +86,7 @@ body {
     background-color:azure
   }
 
-  .navbar {
+  nav ul {
     flex-direction: column;
     align-items: flex-start;
   }

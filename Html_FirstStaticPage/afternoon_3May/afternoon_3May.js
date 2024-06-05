@@ -35,26 +35,29 @@ const flowerOne = document.getElementById('flower1');
 const flowerTwo = document.getElementById('flower2');
 const flowerThree = document.getElementById('flower3');
 
-const flowers = document.getAnimations('flowers')
+const flowers = document.getElementById('flowers');
 
-flowerOneClicked = false
+let flowerOneClicked = false;
 
 flowerOne.addEventListener('click', () => {
   if (!flowerOneClicked) {
     flowerOne.style.width = '100px';
-    flowerOneClicked = true
+    flowerOneClicked = true;
   } else {
     flowerOne.style.width = '50px';
-    flowerOneClicked = false
-  }  
+    flowerOneClicked = false;
+  }
 });
 
-flowers.addEventListener('keydow', (event) => {
-  if(event.key === 'ArrowRight') (
-    
-  )
-})
+// let isSwitchingRight = false
+// let isSwitchingLeft = false
 
+flowers.addEventListener('keydow', (event) => {
+  if (event.key === 'ArrowRight') {
+    // isSwitchingRight = true
+    console.log('hi');
+  }
+});
 
 flowerTwo.addEventListener('click', () => {
   flowerTwo.style.width = '100px';

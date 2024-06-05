@@ -12,7 +12,6 @@ const buttonElementNumber = document.getElementById('submit-button-number')
 const inputElementNumber = document.getElementById('user-input-number')
 
 const correctNumber = Math.floor(Math.random() * 10) + 1
-console.log(correctNumber);
 
 buttonElementNumber.addEventListener('click', () => {
   while(true) {
@@ -112,10 +111,19 @@ buttonAddTask.addEventListener('click', () => {
 // Task 05/06/24 onclick introductio:
 
 function toggleMenu() {
-  console.log('hello');
   const menu = document.querySelector('.responsive-nav')
-  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex'
-
+  const burgerMenuIcon = document.querySelector('.burger-menu-icon')
+  const xMenuIcon = document.querySelector('.x-menu-icon')
+ 
+  if (burgerMenuIcon.style.display === 'inline' || burgerMenuIcon.style.display === '') {
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex'
+    burgerMenuIcon.style.display = 'none'
+    xMenuIcon.style.display = 'inline'
+  } else {
+    menu.style.display = menu.style.display === 'none' ? 'flex' : 'none'
+    burgerMenuIcon.style.display = 'inline'
+    xMenuIcon.style.display = 'none'
+  }
 }
 
 

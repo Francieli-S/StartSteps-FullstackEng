@@ -12,6 +12,7 @@ header {
   justify-content: space-around;
   align-items: center;
   padding: 10px;
+  gap: 10px;
 }
 
 .menu-toggle {
@@ -76,18 +77,37 @@ section {
 
 @media only screen and (max-width: 768px) {
   body {
-    background-color: bisque;
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: center;
+    background-color: rgb(120, 234, 224);
   }
 }
 
 @media only screen and (max-width: 393px) {
   body {
-    background-color: azure;
+    background-color: rgb(238, 243, 164);
+  }
+
+  .x-menu-icon {
+    display: none;
+    width: 50px;
+  }
+
+  .responsive-nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .responsive-nav a {
+    font-size: 0.6em;
+  }
+
+  .responsive-nav li {
+    line-height: 10px;
+  }
+
+  .responsive-nav {
+    display: none;
   }
 
   .menu-toggle {
@@ -97,16 +117,20 @@ section {
   }
 
   .burger-menu-icon {
+    display: inline;
     width: 50px;
   }
 
+  .logo-img {
+    display: none;
+  }
+
   nav ul {
-    /* flex-direction: column;
-    align-items: flex-start; */
     display: none;
   }
 
   header {
-    flex-direction: row-reverse;
+    display: flex;
+    justify-content: center;
   }
 }

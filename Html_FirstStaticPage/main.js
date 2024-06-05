@@ -71,9 +71,6 @@ const quotes = [
   }
 ];
 
-
-
-
 // Task 5 To do list
 const buttonAddTask = document.getElementById('task-add')
 const inputTask = document.getElementById('task-input')
@@ -111,6 +108,15 @@ buttonAddTask.addEventListener('click', () => {
   }
   inputTask.value = ''
 })
+
+// Task 05/06/24 onclick introductio:
+
+function toggleMenu() {
+  console.log('hello');
+  const menu = document.querySelector('.responsive-nav')
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex'
+
+}
 
 
 

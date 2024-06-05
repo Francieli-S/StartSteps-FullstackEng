@@ -14,6 +14,10 @@ header {
   padding: 10px;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .logo-img {
   width: 50px;
   height: 50px;
@@ -32,8 +36,8 @@ nav li {
 }
 
 nav a {
-text-decoration: none;
-cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 main {
@@ -83,11 +87,26 @@ section {
 
 @media only screen and (max-width: 393px) {
   body {
-    background-color:azure
+    background-color: azure;
+  }
+
+  .menu-toggle {
+    display: inline;
+    background-color: transparent;
+    border: none;
+  }
+
+  .burger-menu-icon {
+    width: 50px;
   }
 
   nav ul {
-    flex-direction: column;
-    align-items: flex-start;
+    /* flex-direction: column;
+    align-items: flex-start; */
+    display: none;
+  }
+
+  header {
+    flex-direction: row-reverse;
   }
 }

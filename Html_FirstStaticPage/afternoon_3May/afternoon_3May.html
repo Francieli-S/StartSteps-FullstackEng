@@ -14,7 +14,9 @@
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li>
-            <a href="../afternoon_exercises/afternoon_exercises.html">Afternoon Exercises</a>
+            <a href="../afternoon_exercises/afternoon_exercises.html"
+              >Afternoon Exercises</a
+            >
           </li>
         </ul>
       </nav>
@@ -31,29 +33,28 @@
       <div class="task">
         <h2><span>Task 2:</span><br />Simple Form Validation</h2>
         <form action="">
-          <label for="input-name"
-            >Name:
-            <input id="input-name" type="text" required />
-          </label>
-          <label for="input-email"
-            >Email:
-            <input id="input-email" type="email" required />
-          </label>
+          <label for="input-name">Name:</label>
+          <input id="input-name" type="text" required />
+
+          <label for="input-email">Email:</label>
+          <input id="input-email" type="email" required />
+
           <button class="submit-btn" id="submit-btn" type="submit">
             Submit
           </button>
+          <p id="submit-status">Your data has been sent!</p>
         </form>
       </div>
       <div class="task">
         <h2><span>Bonus 1:</span><br />Interactive Image Gallery</h2>
         <div id="flowers" class="flowers">
-          <button>
+          <button class="btn-flower">
             <img id="flower1" src="./images/daisy.png" alt="flower" />
           </button>
-          <button>
+          <button class="btn-flower">
             <img id="flower2" src="./images/flower.png" alt="flower" />
           </button>
-          <button>
+          <button class="btn-flower">
             <img id="flower3" src="./images/flower_yellow.png" alt="flower" />
           </button>
         </div>

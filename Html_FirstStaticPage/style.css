@@ -81,6 +81,12 @@ section {
   }
 }
 
+/* @media only screen and (max-width: 392px) {
+  .responsive-nav {
+    display: inline;
+  }
+} */
+
 @media only screen and (max-width: 393px) {
   body {
     background-color: rgb(238, 243, 164);

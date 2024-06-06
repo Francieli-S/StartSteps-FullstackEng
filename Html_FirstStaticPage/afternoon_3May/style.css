@@ -78,17 +78,22 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;  
-  gap: 20px;
-  box-sizing: border-box;
-}
-
-form label {
-  margin-right: 10px;
+  gap: 10px;
+  margin: 20px 0px 20px 0;
 }
 
 form input {
-  width: 200px;
-  padding: 5px;
+  width: 80%;
+    height: 36px;
+    border: 1px solid rgb(181, 178, 178);
+    border-radius: 5px;
+    padding-left: 14px;
+    transition: 0.5s;
+}
+
+form input:focus {
+  outline: none;
+  border: 1px solid rgb(12, 173, 138);
 }
 
 .submit-btn {
@@ -104,6 +109,10 @@ form input {
   background-color: rgb(112, 224, 200);
 }
 
+#submit-status {
+  display: none;
+}
+
 /* Bonus 1: */
 .flowers {
   margin-top: 60px;
@@ -116,11 +125,10 @@ img {
   width: 50px;
 }
 
-
-
-
-
-
+.btn-flower {
+  background-color: transparent;
+    border: none;
+}
 
 @media only screen and (max-width: 1130px) and (min-width: 768px) {
   .task {

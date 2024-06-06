@@ -79,7 +79,7 @@ button:hover {
   padding: 10px 0px 3px 5px;
   font-size: 0.6em;
   transition: 0.5s;
-  border: 0px solid;
+  border: 1px solid rgb(181, 178, 178);
 }
 
 #input-one::placeholder,
@@ -87,14 +87,9 @@ button:hover {
   color: rgb(181, 178, 178);
 }
 
-/* input:focus {
+#input-one:focus,#input-two:focus {
   outline: none;
-  border: 1px solid brown;
-} */
-
-#input-one:focus {
-  outline: none;
-  border: 1px solid brown;
+  border: 1px solid rgb(12, 173, 138);
 }
 
 @media only screen and (max-width: 1130px) and (min-width: 768px) {

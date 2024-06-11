@@ -1,3 +1,4 @@
+// Morning practice
 const students = ['Fran', 'Foxy', 'Gato', 'Leo', 'Neco'];
 
 const studentList = document.getElementById('student-list');
@@ -32,4 +33,21 @@ deleteButton.addEventListener('click', () => {
   updateStudentList()
 })
 
+// Afternoon Task 1
+const fruits = ['banana', 'apple', 'watermelow', 'orange', 'grapes']
 
+const fruitsList = document.getElementById('fruit-list')
+
+function updateFruitList() {
+  fruitsList.innerHTML = ''
+  fruits.forEach(fruit => {
+    const listItem = document.createElement('li')
+    listItem.textContent = fruit
+    fruitsList.appendChild(listItem)
+  })
+  document.getElementById('fruit-name').value = ''
+}
+
+updateFruitList()
+
+// Afternoon Task 2

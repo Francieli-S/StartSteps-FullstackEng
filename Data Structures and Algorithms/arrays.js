@@ -34,7 +34,7 @@ deleteButton.addEventListener('click', () => {
 })
 
 // Afternoon Task 1
-const fruits = ['banana', 'apple', 'watermelow', 'orange', 'grapes']
+let fruits = ['banana', 'apple', 'watermelow', 'orange', 'grapes']
 
 const fruitsList = document.getElementById('fruit-list')
 
@@ -50,4 +50,55 @@ function updateFruitList() {
 
 updateFruitList()
 
+// Afternoon Task 3
+const fruitArrayLengthParagraph = document.getElementById('fruit-array-length')
+
+function updateFruitListLength() {
+  fruitArrayLengthParagraph.innerText = fruits.length
+}
+
+updateFruitListLength()
+
 // Afternoon Task 2
+document.querySelector('#fruit-name').addEventListener('change', (e) => {
+  const inputValue = e.target.value
+  fruits.push(inputValue)
+  updateFruitList()
+  updateFruitListLength()
+})
+
+// Afternoon Task 4
+// Afternoon Task 5
+const deletefruitName = document.querySelector('#delete-fruit-name')
+
+deletefruitName.addEventListener('change', (e) => {
+  let inputValue = e.target.value
+  fruits = fruits.filter(fruit => fruit !== inputValue)
+  updateFruitList()
+  updateFruitListLength()
+  deletefruitName.value = ''
+})
+
+// Afternoon Task 6
+const fruitNameToPosition = document.querySelector('#fruit-name-to-position')
+const position = document.querySelector('#position-fruit')
+
+fruitNameToPosition.addEventListener('change', (e) => {
+  let inputValue = e.target.value
+  fruits.splice(position.value, 0, inputValue)
+  updateFruitList()
+  updateFruitListLength()
+  fruitNameToPosition.value = ''
+  position.value = ''
+  console.log(fruits);
+})
+
+// Afternoon Task 6
+
+
+
+
+
+
+
+

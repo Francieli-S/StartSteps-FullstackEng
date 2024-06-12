@@ -94,30 +94,55 @@ fruitNameToPosition.addEventListener('change', (e) => {
 })
 
 // Afternoon Task 7
-const movies = [
-  {title: 'One', genre: 'Drama'},
-  {title: 'Two', genre: 'Action'},
-  {title: 'Three', genre: 'Thriller'},
-  {title: 'Four', genre: 'Comedy'},
-  {title: 'Five', genre: 'Drama'},
-]
+// WIP
 
-const movieList = document.getElementById('movie-list');
-const select = document.getElementById('genre').innerHTML
-console.log(select);
+// const movies = [
+//   {title: 'One', genre: 'Drama'},
+//   {title: 'Two', genre: 'Action'},
+//   {title: 'Three', genre: 'Thriller'},
+//   {title: 'Four', genre: 'Comedy'},
+//   {title: 'Five', genre: 'Drama'},
+// ]
 
-function filterMoviesList() {
-  // movieList.innerHTML = ''
-  movies.filter((movie) => {
+// const btnSelect = document.getElementById('btn-select')
+// const movieList = document.getElementById('movie-list');
+// const selectOption = document.getElementById('genre').value
+
+// function selectGenre() {
+
+//   movies.filter(movie =>  )
+//   movieList.innerHTML = selectOption
+// }
+
+// btnSelect.addEventListener('click', () => {
+
+
+//   console.log(sel);
+// movies.filter(movie => {
+//   if (movie.genre === selectOption) {
+//     const OneMovie = document.createElement('li')
+//     OneMovie.textContent = movie.title
+//     movieList.appendChild(OneMovie)
+
+//   }
+// })
+
+
+  
+// })
+
+// function filterMoviesList() {
+//   // movieList.innerHTML = ''
+//   movies.filter((movie) => {
 
 
 
-    const listItem = document.createElement('li');
-    listItem.textContent = student;
-    studentList.appendChild(listItem);
-  });
-  document.getElementById('student-name').value = ''
-}
+//     const listItem = document.createElement('li');
+//     listItem.textContent = student;
+//     studentList.appendChild(listItem);
+//   });
+//   document.getElementById('student-name').value = ''
+// }
 
 updateStudentList()
 

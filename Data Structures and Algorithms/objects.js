@@ -16,8 +16,6 @@ const user2 = createUser('Gato', 2, 5);
 
 let users = [user1, user2];
 
-console.log(users);
-
 function displayUserInfo(users) {
   const personInfoElement = document.getElementById('person-info');
 
@@ -73,4 +71,52 @@ function removeUser2() {
     alert('enter a valid user id');
   }
 }
+
+const userList = []
+
+function registerUser() {
+  const username = document.getElementById('username').value
+  const name = document.getElementById('name').value
+  const age = +document.getElementById('age').value
+  const email = document.getElementById('email').value
+
+  if (!username || !name || isNaN(age) || !email) {
+    alert('You shoul fill in all the fields.')
+  }
+
+  const userId = userList.length + 1
+
+  const newUser = {
+    id: userId,
+    username: username,
+    name: name,
+    age: age,
+    email: email
+  }
+
+  userList.push(newUser)
+
+  displayRegisteredUser()
+  clearRegistrationForm()
+  console.log('updated list: ', userList);
+}
+
+const displayRegisteredUser = () => {
+  const registeredUserElem = document.getElementById('registered-user')
+  registeredUserElem.innerHTML = ''
+
+  userList.forEach(user => {
+    const userInfoParag = document.createElement('p')
+    userInfoParag.textContent = `ID: ${user.id}, Username: ${user.username}, Name: ${user.name}, Age: ${user.age}, Email: ${user.email}.`
+    registeredUserElem.appendChild(userInfoParag)
+  })
+}
+
+const clearRegistrationForm = () => {
+  document.getElementById('username').value = ''
+  document.getElementById('name').value = ''
+  document.getElementById('age').value = ''
+  document.getElementById('email').value = ''
+}
+
 

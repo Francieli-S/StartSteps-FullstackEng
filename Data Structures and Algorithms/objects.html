@@ -7,27 +7,44 @@
     <script src="./objects.js" defer></script>
   </head>
   <body>
-    <h2>User Registration</h2>
-    <form id="registrationForm">
-      <label for="username">User Name:</label>
-      <input type="text" id="username" required/>
+    <section>
+      <h1>Morning Tasks</h1>
+      <h4>User Registration</h4>
+      <form id="registrationForm">
+        <label for="username">User Name:</label>
+        <input type="text" id="username" required />
 
-      <label for="name">Name:</label>
-      <input type="text" id="name" required/>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
 
-      <label for="age">Age:</label>
-      <input type="text" id="age" required/>
+        <label for="age">Age:</label>
+        <input type="text" id="age" required />
 
-      <label for="email">Email:</label>
-      <input type="text" id="email" required/>
+        <label for="email">Email:</label>
+        <input type="text" id="email" required />
 
-      <button onclick="registerUser()">Register</button>
-    </form>
-    <h2>Registered Users</h2>
-    <div id="registered-user"></div>
-    <h2>User Information</h2>
-    <p id="person-info"></p>
-    <input type="text" name="" id="userId" placeholder="Id of user to remove" />
-    <button onclick="removeUser2()">Remove User</button>
+        <button onclick="registerUser()">Register</button>
+      </form>
+      <h4>Registered Users</h4>
+      <div id="registered-user"></div>
+      <h4>User Information</h4>
+      <p id="person-info"></p>
+      <input
+        type="text"
+        name=""
+        id="userId"
+        placeholder="Id of user to remove"
+      />
+      <button onclick="removeUser2()">Remove User</button>
+    </section>
+    <section>
+      <h1>Afternoon Tasks</h1>
+      <h4>Task 1 - Create and display a student object</h4>
+      <p id="student-info"></p>
+      <h4>Task 2 - Create and display an array of student objects</h4>
+      <ul id="student-list"></ul>
+      <h4>Task 3 - Filter and display student who have pets</h4>
+      <ul id="student-pets-list"></ul>
+    </section>
   </body>
 </html>

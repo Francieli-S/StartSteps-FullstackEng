@@ -93,7 +93,35 @@ fruitNameToPosition.addEventListener('change', (e) => {
   console.log(fruits);
 })
 
-// Afternoon Task 6
+// Afternoon Task 7
+const movies = [
+  {title: 'One', genre: 'Drama'},
+  {title: 'Two', genre: 'Action'},
+  {title: 'Three', genre: 'Thriller'},
+  {title: 'Four', genre: 'Comedy'},
+  {title: 'Five', genre: 'Drama'},
+]
+
+const movieList = document.getElementById('movie-list');
+const select = document.getElementById('genre').innerHTML
+console.log(select);
+
+function filterMoviesList() {
+  // movieList.innerHTML = ''
+  movies.filter((movie) => {
+
+
+
+    const listItem = document.createElement('li');
+    listItem.textContent = student;
+    studentList.appendChild(listItem);
+  });
+  document.getElementById('student-name').value = ''
+}
+
+updateStudentList()
+
+
 
 
 

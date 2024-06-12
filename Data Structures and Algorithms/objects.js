@@ -84,6 +84,9 @@ function registerUser() {
     alert('You shoul fill in all the fields.')
   }
 
+  // check exist user
+  const isUser = userList.includes(user.id)
+
   const userId = userList.length + 1
 
   const newUser = {
@@ -107,8 +110,15 @@ const displayRegisteredUser = () => {
 
   userList.forEach(user => {
     const userInfoParag = document.createElement('p')
+    const editBtn = document.createElement('button')
     userInfoParag.textContent = `ID: ${user.id}, Username: ${user.username}, Name: ${user.name}, Age: ${user.age}, Email: ${user.email}.`
     registeredUserElem.appendChild(userInfoParag)
+    editBtn.textContent = 'Edit'
+    registeredUserElem.appendChild(editBtn)
+
+    editBtn.addEventListener('click', () => {
+      editUser(user)
+    })
   })
 }
 
@@ -117,6 +127,14 @@ const clearRegistrationForm = () => {
   document.getElementById('name').value = ''
   document.getElementById('age').value = ''
   document.getElementById('email').value = ''
+}
+
+const editUser = (user) => {
+  const username = document.getElementById('username').value = user.username
+  const name = document.getElementById('name').value = user.name
+  const age = document.getElementById('age').value = +user.age
+  const email = document.getElementById('email').value = user.email
+  console.log('user: ', user);
 }
 
 

@@ -196,66 +196,75 @@ const studentFive = createStudent(
   false
 );
 
-const arrStudents = [studentOne, studentTwo, studentThree, studentFour, studentFive]
+const arrStudents = [
+  studentOne,
+  studentTwo,
+  studentThree,
+  studentFour,
+  studentFive,
+];
 
 function studentList() {
-  const studentListElem = document.getElementById('student-list')
-  studentListElem.innerHTML = ''
+  const studentListElem = document.getElementById('student-list');
+  studentListElem.innerHTML = '';
 
-  arrStudents.forEach(student => {
-    const oneStudentElem = document.createElement('li')
+  arrStudents.forEach((student) => {
+    const oneStudentElem = document.createElement('li');
     oneStudentElem.textContent = `This is ${student.name} ${
       student.surname
     }. Their hobby is ${student.hobby}. ${student.name} ${
       student.hasPet ? 'has' : 'does not have'
     } pets.`;
-    studentListElem.appendChild(oneStudentElem)
-  })
+    studentListElem.appendChild(oneStudentElem);
+  });
 }
 
-studentList()
+studentList();
 
 // Task 3
 function filterStudentsPets() {
-  const studentListElem = document.getElementById('student-pets-list')
-  studentListElem.innerHTML = ''
+  const studentListElem = document.getElementById('student-pets-list');
+  studentListElem.innerHTML = '';
 
-  arrStudents.filter(student => {
+  arrStudents.filter((student) => {
     if (student.hasPet) {
-      const oneStudentElem = document.createElement('li')
+      const oneStudentElem = document.createElement('li');
       oneStudentElem.textContent = `This is ${student.name} ${
         student.surname
       }. Their hobby is ${student.hobby}. ${student.name} ${
         student.hasPet ? 'has' : 'does not have'
       } pets.`;
-      studentListElem.appendChild(oneStudentElem)
-
+      studentListElem.appendChild(oneStudentElem);
     }
-  })
+  });
 }
 
-filterStudentsPets()
+filterStudentsPets();
 
 // Task 4
 function addStudent() {
-  const name = document.getElementById('name2')
-  const surname = document.getElementById('surname')
-  const hobby = document.getElementById('hobby')
-  const hasPet = document.getElementById('has-pet')
+  const name = document.getElementById('name2');
+  const surname = document.getElementById('surname');
+  const hobby = document.getElementById('hobby');
+  const hasPet = document.getElementById('has-pet');
 
-  if (!name || !surname || !hobby) {
+  if (!name.value || !surname.value || !hobby.value) {
     alert('You shoul fill in all the fields.');
+  } else {
+    const studentSix = createStudent(
+      name.value,
+      surname.value,
+      hobby.value,
+      hasPet.checked
+    );
+    arrStudents.push(studentSix);
+
+    studentList();
+    filterStudentsPets();
+
+    name.value = '';
+    surname.value = '';
+    hobby.value = '';
+    hasPet.value = '';
   }
-
-  const studentSix = createStudent(name.value, surname.value, hobby.value, hasPet.checked)
-  arrStudents.push(studentSix)
-
-  studentList()
-  filterStudentsPets()
-
-  name.value = ''
-  surname.value = ''
-  hobby.value = ''
-  hasPet.value = ''
 }
-

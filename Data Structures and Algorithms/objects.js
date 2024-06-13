@@ -233,3 +233,24 @@ function filterStudentsPets() {
 }
 
 filterStudentsPets()
+
+// Task 4
+function addStudent() {
+console.log('hi');
+
+  const name = document.getElementById('name2').value
+  const surname = document.getElementById('surname').value
+  const hobby = document.getElementById('hobby').value
+  const hasPet = document.getElementById('has-pet').checked
+
+  if (!name || !surname || !hobby) {
+    alert('You shoul fill in all the fields.');
+  }
+
+  const studentSix = createStudent(name, surname, hobby, hasPet)
+  arrStudents.push(studentSix)
+  console.log(arrStudents);
+  studentList()
+}
+
+console.log(arrStudents);

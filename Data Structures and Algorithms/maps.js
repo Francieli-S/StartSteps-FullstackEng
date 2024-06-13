@@ -1,7 +1,7 @@
 // create a new Map data structure
 const cityPopulation = new Map();
 
-// set the data
+// add the data
 cityPopulation.set('New York', 84);
 cityPopulation.set('Los Angeles', 39);
 cityPopulation.set('Chicago', 27);
@@ -44,3 +44,26 @@ function addCity() {
     alert('Please add valid city and population.');
   }
 }
+
+// Afternoon Tasks
+// Task 1 Create a Map os students and their grades
+const studentGrade = new Map()
+
+studentGrade.set('Gato', 10)
+studentGrade.set('Foxy', 10)
+studentGrade.set('Mei', 9.5)
+studentGrade.set('Susam', 9.5)
+studentGrade.set('Mim', 9.5)
+
+function displayStudentGradeList() {
+  const studentList = document.getElementById('student-grade-list')
+  studentList.innerHTML = ''
+  
+  studentGrade.forEach((grade, student) => {
+    studentList.innerHTML += `<li>${student}: ${grade}</li>`
+  })
+}
+
+displayStudentGradeList()
+
+

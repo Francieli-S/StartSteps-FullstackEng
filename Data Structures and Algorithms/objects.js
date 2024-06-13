@@ -200,6 +200,7 @@ const arrStudents = [studentOne, studentTwo, studentThree, studentFour, studentF
 
 function studentList() {
   const studentListElem = document.getElementById('student-list')
+  studentListElem.innerHTML = ''
 
   arrStudents.forEach(student => {
     const oneStudentElem = document.createElement('li')
@@ -217,6 +218,7 @@ studentList()
 // Task 3
 function filterStudentsPets() {
   const studentListElem = document.getElementById('student-pets-list')
+  studentListElem.innerHTML = ''
 
   arrStudents.filter(student => {
     if (student.hasPet) {
@@ -236,21 +238,24 @@ filterStudentsPets()
 
 // Task 4
 function addStudent() {
-console.log('hi');
-
-  const name = document.getElementById('name2').value
-  const surname = document.getElementById('surname').value
-  const hobby = document.getElementById('hobby').value
-  const hasPet = document.getElementById('has-pet').checked
+  const name = document.getElementById('name2')
+  const surname = document.getElementById('surname')
+  const hobby = document.getElementById('hobby')
+  const hasPet = document.getElementById('has-pet')
 
   if (!name || !surname || !hobby) {
     alert('You shoul fill in all the fields.');
   }
 
-  const studentSix = createStudent(name, surname, hobby, hasPet)
+  const studentSix = createStudent(name.value, surname.value, hobby.value, hasPet.checked)
   arrStudents.push(studentSix)
-  console.log(arrStudents);
+
   studentList()
+  filterStudentsPets()
+
+  name.value = ''
+  surname.value = ''
+  hobby.value = ''
+  hasPet.value = ''
 }
 
-console.log(arrStudents);

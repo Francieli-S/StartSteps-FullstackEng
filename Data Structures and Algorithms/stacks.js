@@ -19,16 +19,17 @@ function pop() {
   updateDisplayStack()
 }
 
-stack.push('You')
-stack.push('I')
-stack.push('Hello')
-stack.push('Bye')
+// stack.push('hello hello')
+// stack.push('say hello')
+// stack.push('and I')
+// stack.push('good bye')
+// stack.push('You say')
 
 // create a function to display the stack
 function updateDisplayStack() {
   const stackListElem = document.getElementById('stack-display');
   console.log(stackListElem);
-  // stackListElem.innerHTML = ''
+  stackListElem.innerHTML = ''
 
   for (let i = stack.length - 1; i >= 0; i--) {
     console.log(stack[i]);
@@ -39,3 +40,16 @@ function updateDisplayStack() {
 }
 
 updateDisplayStack();
+
+// Afternoon Tasks
+// Task 1
+function stackToTop() {
+  stack.push(`block ${stack.length}`)
+  updateDisplayStack()
+}
+
+function unstack() {
+  stack.pop()
+  updateDisplayStack()
+}
+

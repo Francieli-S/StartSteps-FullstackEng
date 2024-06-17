@@ -8,7 +8,7 @@ cityPopulation.set('Chicago', 27);
 cityPopulation.set('Houston', 23);
 cityPopulation.set('Phoenix', 16);
 
-// funtion to display
+// function to display
 function updateCityDisplay() {
   const cityDataDiv = document.getElementById('city-data');
   cityDataDiv.innerHTML = '';
@@ -54,6 +54,11 @@ studentGrade.set('Foxy', 10)
 studentGrade.set('Mei', 9.5)
 studentGrade.set('Susam', 9.5)
 studentGrade.set('Mim', 9.5)
+studentGrade.set('Cleo', 7)
+
+const entriesStudentGrade = Array.from(studentGrade.entries())
+console.log(entriesStudentGrade);
+
 
 function displayStudentGradeList() {
   const studentList = document.getElementById('student-grade-list')
@@ -66,4 +71,7 @@ function displayStudentGradeList() {
 
 displayStudentGradeList()
 
+// Task 2 Create two student group
 
+const group1 = new Map([...studentGrade])
+console.log(group1);

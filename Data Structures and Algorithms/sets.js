@@ -48,3 +48,7 @@ colorInput.value = ''
 objectInput.value = ''
 }
 
+// Afternoon Tasks
+// Task 3
+
+

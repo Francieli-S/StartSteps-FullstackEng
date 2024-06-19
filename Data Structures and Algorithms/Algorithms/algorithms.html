@@ -6,6 +6,8 @@
   <title>Algorithms</title>
   <script src="./binary_search.js" defer></script>
   <script src="./bubble_sort.js" defer></script>
+  <script src="./selection_sort.js" defer></script>
+  <script src="./insertion_sort.js" defer></script>
 </head>
 <body>
   <h1>Algorithms</h1>
@@ -18,13 +20,24 @@
   </section>
   <section>
     <h4>Bubble sort</h4>
-    <p>Original array:</p>
-    <p id="original-array"></p>
-    <p>Sorted array:</p>
-    <p id="sorted-array"></p>
-    <button onclick="sort()">Sort</button>
-    <p>Iterations:</p>
-    <p id="iterations"></p>
+    <p>Original array: <span id="original-array"></span></p>
+    <p>Sorted array: <span id="bubble-sorted-array"></span></p>
+    <button onclick="sortWithBubble()">Sort</button>
+    <p>Iterations: <span id="bubble-iterations"></span></p>
+  </section>
+  <section>
+    <h4>Selection sort</h4>
+    <p>Original array: <span id="original-array-2"></span></p>
+    <p>Sorted array: <span id="selection-sorted-array"></span></p>
+    <button onclick="sortWithSelection()">Sort</button>
+    <p>Iterations: <span id="selection-iterations"></span></p>
+  </section>
+  <section>
+    <h4>Insertion sort</h4>
+    <p>Original array: <span id="original-array-3"></span></p>
+    <p>Sorted array: <span id="insertion-sorted-array"></span></p>
+    <button onclick="sortWithInsertion()">Sort</button>
+    <p>Iterations: <span id="insertion-iterations"></span></p>
   </section>
 </body>
 </html>

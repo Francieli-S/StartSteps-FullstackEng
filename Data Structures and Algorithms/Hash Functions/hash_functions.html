@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Hash Function</title>
     <script defer src="hash_functions.js"></script>
-</head>
-<body>
-    <H1>Hash Functions</H1>
-    <input type="text" id="password" />
-    <button onclick="generateHash()">Show Hash</button>
-    <p id="output"></p>
-</body>
+  </head>
+  <body>
+    <h1>Hash Functions</h1>
+    <section>
+      <h4>Morning example</h4>
+      <input type="text" id="password" />
+      <button onclick="generateHash()">Show Hash</button>
+      <p id="output"></p>
+    </section>
+    <section>
+      <h4>Afternoon - Task 1 - simple hashing using sum of character codes</h4>
+      <input type="text" id="input-task1" />
+      <button onclick="generateHashSum()">Show Hash Sum</button>
+      <p id="output-task1"></p>
+    </section>
+    <section>
+      <h4>Afternoon - Task 2 - simple hashing using multiplicative hashing</h4>
+      <input type="text" id="input-task2" />
+      <button onclick="generateHashMultip()">Show Hash Sum</button>
+      <p id="output-task2"></p>
+    </section>
+  </body>
 </html>

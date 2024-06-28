@@ -1,11 +1,13 @@
 // This is the recursive way, but it is a problem due to redundant calculations
 function fibonacciRecursive(n) {
-  console.log(n);
+  // console.log(n);
   if (n <= 1) {
     return n;
   }
   return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
 }
+
+console.log(fibonacciRecursive(5));
 
 // Using memoization technique by caching (storing) the results of expensive functions calls.
 // In the Fibonacci, the values are stored in a data structure, preventing duplicates.
@@ -28,12 +30,12 @@ const fibonacciMemoization = (n) => {
 };
 
 // Tabulation
-// good with smaller overlaping
+// good with smaller overlapping
 const fibonacciTabulation = (n) => {
   const fib = [0, 1]
 
   for (let i = 2; i <= n; i++) {
-    fib[i] = fib[i - 1] + fib[i - 2] // only two overlaping
+    fib[i] = fib[i - 1] + fib[i - 2] // only two overlapping
   }
 console.log(n);
   return fib[n]
@@ -60,23 +62,6 @@ const factorial = (nn) => {
   return nn * factorial(nn - 1)
 }
 
-// memoization
-// const facMemo = new Set()
-// const factorialMemoization = (nn) => {
-//   if (nn === 0 || nn === 1) {
-//     return 1
-//   }
-  
-//   if (facMemo.has(nn)) {
-//     return nn * factorialMemoization(facMemo.get())
-//   }
-  
-//   facMemo.add(factorialMemoization(nn - 1))
-//   console.log(facMemo);
-  
-//   return facMemo
-// }
-
 // tabulation
 const factorialTabulation = (n) => {
   const tab = []
@@ -89,7 +74,6 @@ console.log(n);
   return tab[n]
 }
 
-
 console.log(factorial(5));
-// console.log(factorialMemoization(5));
+console.log(factorialMemoization(5));
 console.log(factorialTabulation(5));

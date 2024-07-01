@@ -86,7 +86,7 @@ const findAllCommonSubsequences = (str1, str2, length) => {
   generateSubsequences(str1, '', 0, subsequences1)
 
   let subsequences2 = new Set()
-  generateSubsequences(str1, '', 0, subsequences2)
+  generateSubsequences(str2, '', 0, subsequences2)
 
   // find common subsequences by checking ontersection of both sets
   subsequences1.forEach(subseq => {

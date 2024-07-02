@@ -64,4 +64,46 @@ let products = [
   { id: 20, name: 'Rug', category: 'Furniture' }
   ];
 
-  
+  const findProduct = (array, target) => {
+    return array.some(elem => elem.name === target)
+  }
+
+  const measureExecutionTime = (algorithm, array, input) => {
+    const start = performance.now()
+    algorithm(array, input)
+    const end = performance.now()
+    return [end, start] // 0 because it is O(1)
+  }
+
+  const searchProduct = () => {
+    const inputSearch = document.getElementById('input-search').value
+    const resultSearch = document.getElementById('result-search')
+    const resultExecution = document.getElementById('result-execution')
+
+    const searchResult = findProduct(products, inputSearch)
+    const executionResult = measureExecutionTime(findProduct, products, inputSearch)
+    
+    resultSearch.textContent = searchResult
+    resultExecution.innerText = executionResult
+  }
+
+  // Task 3
+  const cart = []
+
+  const displayCart = (cart) => {
+    const listItems = document.getElementById('cartItems')
+    listItems.innerHTML = ''
+
+    cart.map(item => {
+      const oneItem = document.createElement('li')
+      oneItem.textContent = item
+      listItems.appendChild(oneItem)
+    })
+  }
+
+  const addToCart = (item) => {
+    cart.push(item)
+    displayCart(cart)
+  }
+
+

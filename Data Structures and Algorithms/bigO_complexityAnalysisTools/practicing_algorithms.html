@@ -5,10 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Practicing Algorithms</title>
     <script defer src="./practicing_algorithms.js"></script>
+    <style>
+      .product {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 200px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .cart {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
     <h1>Practicing Algorithms - afternoon tasks</h1>
-    <hr>
+    <hr />
     <section>
       <h4>Task 1 - Student category search</h4>
       <form action="">
@@ -21,11 +36,30 @@
       </form>
       <ul id="student-list"></ul>
     </section>
-<hr>
+    <hr />
     <section>
-      <h4>Task 2 - Search for an item in a product list</h4>
-      <button onclick="analyzeProductSearch()">Search product</button>
-      <p id="result"></p>
+      <h4>Task 2 - Search for an item in a product list and measure execution time</h4>
+      <input type="text" id="input-search">
+      <button onclick="searchProduct()">Search product</button>
+      <p>Seach result: <span id="result-search"></span></p>
+      <p>Execution result: <span id="result-execution"></span></p>
+    </section>
+    <hr />
+    <section>
+      <h4>Task 3 - Add dummy items to a shopping cart</h4>
+      <div id="products">
+        <div class="product" onclick="addToCart('Laptop')">Laptop</div>
+        <div class="product" onclick="addToCart('Book')">Book</div>
+        <div class="product" onclick="addToCart('Headphones')">Headphones</div>
+        <div class="product" onclick="addToCart('Chair')">Chair</div>
+        <div class="product" onclick="addToCart('Smartphone')">Smartphone</div>
+      </div>
+      <div class="cart">
+        <h3>Shopping Cart</h3>
+        <ul id="cartItems">
+          <!-- Cart items will be displayed here -->
+        </ul>
+      </div>
     </section>
   </body>
 </html>

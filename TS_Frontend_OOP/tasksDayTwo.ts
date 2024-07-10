@@ -18,6 +18,8 @@ type Student = {
   uniqueSymbol: symbol;
   // from task 5:
   allScores: number[];
+  // from bonus task
+  attendence?: number
 };
 
 // Task 3
@@ -61,21 +63,26 @@ const calculateGrade = (student: Student): void => {
     student.allScores.length
   ).toFixed(2);
 
+  console.log('averageScore: ', averageScore, 'attendence', student.attendence);
+
   switch (true) {
+    case student.attendence ! < 75:
+      console.log('Grade F');
+      break;
     case averageScore >= 90:
-      console.log(averageScore, 'Grade A');
+      console.log('Grade A');
       break;
     case averageScore >= 80:
-      console.log(averageScore, 'Grade B');
+      console.log('Grade B');
       break;
     case averageScore >= 70:
-      console.log(averageScore, 'Grade C');
+      console.log('Grade C');
       break;
     case averageScore >= 60:
-      console.log(averageScore, 'Grade D');
+      console.log('Grade D');
       break;
     default:
-      console.log(averageScore, 'Grade F');
+      console.log('Grade F');
       break
   }
 
@@ -102,6 +109,20 @@ const studentOne: Student = {
   grade: 11,
   uniqueSymbol: Symbol('B'),
   allScores: [100, 92.55, 8, 97],
+  attendence: 85
+};
+
+const studentTwo: Student = {
+  studentName: 'Chico',
+  studentId: 2,
+  subject: ['Math', 'Hunt', 'Cuddle'],
+  major: false,
+  isStuding: true,
+  grade: 11,
+  uniqueSymbol: Symbol('C'),
+  allScores: [100, 98.99, 99.55, 98.9],
+  attendence: 74
 };
 
 calculateGrade(studentOne);
+calculateGrade(studentTwo)

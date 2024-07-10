@@ -39,12 +39,26 @@ interface GraduateStudent extends Student {
   graduationYear: number
 }
 
+interface ExtraLessonMathStudent extends Student {
+  mentor: string
+  dates: string[]
+}
+
 let studentOne: GraduateStudent = {
   id: 1,
   name: 'Chico',
   age: 8,
   email: 'chico@gmail.com',
   graduationYear: 2024
+}
+
+let studentTwo: ExtraLessonMathStudent = {
+  id: 2,
+  name: 'Bento',
+  age: 6,
+  email: 'bento@gmail.com',
+  mentor: 'Mr. Chico',
+  dates: ['Monday', 'Wednesday']
 }
 
 // // TYPE X Interface
@@ -78,3 +92,39 @@ let studentOne: GraduateStudent = {
 function add(a: number, b: number): number {
   return a + b
 }
+
+function displayStudentDetails(student: Student): void {
+  if ((student as GraduateStudent).graduationYear) {
+    const stud = student as GraduateStudent
+    console.log('graduation year: ', stud.graduationYear);
+  } else if ((student as ExtraLessonMathStudent).mentor) {
+    const extStud = student as ExtraLessonMathStudent
+    console.log('dates to extra Math lessons: ', extStud.dates.join(', '));
+  }
+}
+
+displayStudentDetails(studentOne)
+displayStudentDetails(studentTwo)
+
+// function using interface:
+interface MathFunction {
+  (x: number, y: number): number 
+}
+
+const calculateArea: MathFunction = (width, length) => {
+  return width * length
+}
+
+const area = calculateArea(2, 6)
+console.log(area);
+
+interface MathFunctionArray {
+  (...numbers: number[]): number 
+}
+
+const sumNums: MathFunctionArray = (...numbers) => {
+  return numbers.reduce((a, b) => a + b, 0)
+}
+
+const sum = sumNums(1, 2, 11)
+console.log(sum);

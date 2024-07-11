@@ -7,6 +7,13 @@ let strArray2: Array<string> = ['hi', 'hello'] // declaration and initialization
 let strNumArray: Array<string | number> = ['hi', 4]
 let strNumArray2: (string | number)[] = ['hello', 4]
 
+let twoDimensionArr: string[][] = [
+    ['hello', 'hi'],
+    ['bla', 'yada']
+]
+
+console.log(twoDimensionArr[1][1]); // logs 'yada'
+
 // UNION - the values can be one OR another
 let unionValues: (number | string)[] = [4, 'bla'];
 

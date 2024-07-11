@@ -1,5 +1,11 @@
-let integer: number = 3;
-let strArray: string[] = ['hi', 'hello'];
+let integer: number[]; // declaration
+let strArray: string[] = ['hi', 'hello']; 
+
+integer = [1, 2, 3] // initialization
+
+let strArray2: Array<string> = ['hi', 'hello'] // declaration and initialization
+let strNumArray: Array<string | number> = ['hi', 4]
+let strNumArray2: (string | number)[] = ['hello', 4]
 
 // UNION - the values can be one OR another
 let unionValues: (number | string)[] = [4, 'bla'];

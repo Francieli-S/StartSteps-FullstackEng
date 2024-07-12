@@ -184,3 +184,33 @@ if (validationErrors.length > 0) {
   console.error('Form validation errors:');
   validationErrors.forEach((error) => console.error(error));
 }
+
+// ENUMS
+// Be aware of some behaviour like:
+// when we assign values, the next variable expects a value
+// if the first variable does not have a value, 0 will be assined
+// check more specific behaviours
+// numeric
+enum PrintMedia {
+  NEWSPAPER,
+  NEWLETEER,
+  MAGAZINE,
+  BOOK
+}
+
+console.log('numetic enum example: ', PrintMedia);
+console.log('selecting a numeric enum: ', PrintMedia.MAGAZINE); // logs 2
+
+// string
+enum AccountType {
+  CUSTOM = 7,
+  PERSONAL = 'Personal',
+  STARTUP = 'Startup',
+  ENTERPRISE = 'Enterprise',
+}
+
+console.log('string enum example: ', AccountType.CUSTOM)
+console.log('string enum example: ', AccountType)
+
+
+

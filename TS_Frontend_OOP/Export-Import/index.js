@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const function_1 = require("./function");
+let tasks = [];
+(0, function_1.addTask)('practice TS', tasks);
+(0, function_1.addTask)('feed the cats', tasks);
+(0, function_1.addTask)('learn german', tasks);
+(0, function_1.displayTasks)(tasks);
+tasks = (0, function_1.removeTask)('feed the cats', tasks);
+(0, function_1.displayTasks)(tasks);

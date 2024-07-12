@@ -212,5 +212,48 @@ enum AccountType {
 console.log('string enum example: ', AccountType.CUSTOM)
 console.log('string enum example: ', AccountType)
 
+// CLASSES
+class Entity {
+  title: string;
+  readonly address: string
+  protected id: number;
+  private creationDate: Date;
+
+  constructor(title: string = '', address: string = '') {
+    this.title = title
+    this.address = address
+    this.id = Math.floor(Math.random() * 1000)
+    this.creationDate = new Date()
+  }
+
+  getTitle(): string {
+    return this.title
+  }  
+
+  getAddress(): string {
+    return this.address
+  }  
+
+  getId(): number {
+    return this.id
+  }
+
+  getCreationDate(): Date {
+    return this.creationDate
+  }
+
+  setTitle(title: string): void {
+    this.title = title
+  }
+}
+
+const entityOne = new Entity('Entity One', 'Stralauer Platy')
+
+// entityOne.id = 2 // as id is protected, it says that id is protected, so it can't be changed
+// entityOne.creationDate // as creationDate is private, it says that creationDate is only accesseble within the class, using the getter.
+// entityOne.address = 'another one' // as address is readonly, it can't be changed.
+console.log('checking the date by using the method getCreationDate(): ', entityOne.getCreationDate()); 
+console.log(entityOne);
+
 
 

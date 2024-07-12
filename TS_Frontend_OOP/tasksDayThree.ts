@@ -31,3 +31,6 @@ function countItemsBySize(items: SizeAndQuantity[]): number {
 }
 
 console.log(top);
+console.log('Sizes array:', top.sizes);
+console.log('Total quantity:', countItemsBySize(top.sizes));
+console.log('Total quantity using dynamic property:', top.quantity);

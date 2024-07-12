@@ -34,23 +34,41 @@ isLocalScope();
 // I'm not doing it because I have been doing it for some weeks.
 // Task 5
 const calculateGrade = (student) => {
-    let averageScore = +(student.allScores.reduce((sum, score) => sum + score, 0) / student.allScores.length).toFixed(2);
-    console.log(averageScore);
-    if (averageScore >= 90) {
-        return 'Grade A';
+    let averageScore = +(student.allScores.reduce((sum, score) => sum + score, 0) /
+        student.allScores.length).toFixed(2);
+    console.log('averageScore: ', averageScore, 'attendence', student.attendence);
+    switch (true) {
+        case student.attendence < 75:
+            console.log('Grade F');
+            break;
+        case averageScore >= 90:
+            console.log('Grade A');
+            break;
+        case averageScore >= 80:
+            console.log('Grade B');
+            break;
+        case averageScore >= 70:
+            console.log('Grade C');
+            break;
+        case averageScore >= 60:
+            console.log('Grade D');
+            break;
+        default:
+            console.log('Grade F');
+            break;
     }
-    else if (averageScore >= 80) {
-        return 'Grade B';
-    }
-    else if (averageScore >= 70) {
-        return 'Grade C';
-    }
-    else if (averageScore >= 60) {
-        return 'Grade D';
-    }
-    else {
-        return 'Grade F';
-    }
+    // in the below case, change the return value to string
+    // if (averageScore >= 90) {
+    //   return 'Grade A';
+    // } else if (averageScore >= 80) {
+    //   return 'Grade B';
+    // } else if (averageScore >= 70) {
+    //   return 'Grade C';
+    // } else if (averageScore >= 60) {
+    //   return 'Grade D';
+    // } else {
+    //   return 'Grade F';
+    // }
 };
 const studentOne = {
     studentName: 'Bento',
@@ -61,6 +79,18 @@ const studentOne = {
     grade: 11,
     uniqueSymbol: Symbol('B'),
     allScores: [100, 92.55, 8, 97],
+    attendence: 85
 };
-const studentOneGrade = calculateGrade(studentOne);
-console.log(studentOneGrade);
+const studentTwo = {
+    studentName: 'Chico',
+    studentId: 2,
+    subject: ['Math', 'Hunt', 'Cuddle'],
+    major: false,
+    isStuding: true,
+    grade: 11,
+    uniqueSymbol: Symbol('C'),
+    allScores: [100, 98.99, 99.55, 98.9],
+    attendence: 74
+};
+calculateGrade(studentOne);
+calculateGrade(studentTwo);

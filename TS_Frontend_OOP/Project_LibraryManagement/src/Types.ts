@@ -5,7 +5,7 @@ export enum BookGenre {
   BIOGRAPHY = 'Biograph',
 }
 
-export interface Book {
+export interface BookDetails {
   title: string
   author: string
   publishedYear: number

@@ -1,6 +1,6 @@
 import { BookDetails, BookGenre } from "./Types";
 
-class Book {
+export class Book {
   private _title: string
   private _author: string
   private _publishedYear: number
@@ -47,11 +47,10 @@ class Book {
   }
 
   // Is it okay to use arrow function here but not with the getters and setters?
-  // IMPLEMENTING LIBRARY FIRST
-  // getBookDetails = (title: string): BookDetails => {
-
-  // } 
-
+  getBookDetails = (): void => {
+    const {title, author, publishedYear, genre} = this
+    console.log(`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
+  } 
 }
 
 // I'm not sure if this is the right way to do it. It seems I am repeating
@@ -64,6 +63,5 @@ const bookOne: BookDetails = {
 }
 
 const bookOne1 = new Book(bookOne)
-let {title, author, publishedYear, genre} = bookOne1
-console.log(bookOne1);
-console.log(`Title: ${title}, author: ${author}, publishedYear: ${publishedYear}, genre: ${genre}.`);
+
+bookOne1.getBookDetails();

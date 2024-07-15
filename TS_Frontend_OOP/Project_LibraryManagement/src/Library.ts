@@ -11,7 +11,7 @@ interface LibraryDetails {
 export class Library {
   name: string;
   address: string;
-  books: Book[];
+  protected books: Book[];
 
   constructor(libray: LibraryDetails) {
     this.name = libray.name;

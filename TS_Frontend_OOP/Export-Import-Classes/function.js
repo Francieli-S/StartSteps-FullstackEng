@@ -15,7 +15,6 @@ class Todo {
         };
         this.removeTask = (name) => {
             this.tasks = this.tasks.filter((task) => task.name !== name);
-            console.log(this.tasks);
         };
         this.tasks = [];
     }

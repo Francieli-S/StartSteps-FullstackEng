@@ -2,7 +2,7 @@
 
 class banckAccount {
   private balance: number;
-  protected _userName: string;
+  protected _userName: string; // we use _ to differentiate from the getters and setters.
 
   constructor(name: string = '') {
     this.balance = 0;

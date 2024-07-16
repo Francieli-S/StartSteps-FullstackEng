@@ -1,6 +1,5 @@
 "use strict";
 // PRIVATE, PROTECTED, AND PUBLIC
-Object.defineProperty(exports, "__esModule", { value: true });
 class banckAccount {
     constructor(name = '') {
         this.deposit = (amount) => {

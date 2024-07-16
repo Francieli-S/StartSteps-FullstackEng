@@ -1,12 +1,7 @@
 // Is it because Library interface will not be imported from the other files that we creacre it inside the Library file?
 
 import { Book } from './Book';
-import { BookDetails } from './Types';
-
-interface LibraryDetails {
-  name: string;
-  address: string;
-}
+import { BookDetails, LibraryDetails } from './Types';
 
 export class Library {
   name: string;

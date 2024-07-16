@@ -25,7 +25,7 @@ class DigitalBook extends Book_1.Book {
     getBookDetails() {
         super.getBookDetails();
         const { title, author, publishedYear, genre, format, fileSize } = this;
-        return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}`);
+        return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB`);
     }
 }
 exports.DigitalBook = DigitalBook;
@@ -37,5 +37,6 @@ const digitalBookOne = {
     // format: DigitalBookFormat.PDF,
     // fileSize: 2
 };
-const newDigBook = new DigitalBook(digitalBookOne, Types_1.DigitalBookFormat.PDF, 2);
+const newDigBook = new DigitalBook(digitalBookOne, Types_1.DigitalBookFormat.MOBI, 2);
 console.log(newDigBook);
+console.log(newDigBook.getBookDetails());

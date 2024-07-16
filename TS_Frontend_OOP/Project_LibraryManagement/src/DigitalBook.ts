@@ -32,7 +32,7 @@ export class DigitalBook extends Book {
   getBookDetails() {
     super.getBookDetails()
     const {title, author, publishedYear, genre, format, fileSize} = this
-    return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}`);
+    return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB`);
   }
 }
 

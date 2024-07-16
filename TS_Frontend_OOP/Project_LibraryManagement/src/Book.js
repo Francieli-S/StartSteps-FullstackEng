@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Book = void 0;
 const Types_1 = require("./Types");
 class Book {
+    // improve properly default parameters
     constructor(book = { title: '', author: '', publishedYear: 2000, genre: Types_1.BookGenre.SCIENCE }) {
         this.getBookDetails = () => {
             const { title, author, publishedYear, genre } = this;
@@ -40,22 +41,10 @@ class Book {
     }
 }
 exports.Book = Book;
-// I'm not sure if this is the right way to do it. It seems I am repeating
-// If it is right, how to name this object and the instance?
 const bookOne = {
     title: 'Cat Kingdom',
     author: 'Franci',
     publishedYear: 2024,
     genre: Types_1.BookGenre.SCIENCE
 };
-// const bookTwo: BookDetails = {
-//   title: '',
-//   author: '',
-//   publishedYear: ,
-//   genre: BookGenre.BIOGRAPHY
-// }
 const bookOne1 = new Book(bookOne);
-// const bookTwo2 = new Book(bookTwo)
-bookOne1.getBookDetails();
-// console.log(bookTwo2);
-console.log(bookOne1.getBookDetails());

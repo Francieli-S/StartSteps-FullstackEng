@@ -3,18 +3,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Book = void 0;
 const Types_1 = require("./Types");
 class Book {
-    constructor(book) {
-        // Is it okay to use arrow function here but not with the getters and setters?
+    constructor(book = { title: '', author: '', publishedYear: 2000, genre: Types_1.BookGenre.SCIENCE }) {
         this.getBookDetails = () => {
             const { title, author, publishedYear, genre } = this;
-            console.log(`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
+            return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
         };
         this._title = book.title;
         this._author = book.author;
         this._publishedYear = book.publishedYear;
         this._genre = book.genre;
     }
-    // code some validation to the getters
+    // code some validation to the setters
     get title() {
         return this._title;
     }
@@ -49,5 +48,14 @@ const bookOne = {
     publishedYear: 2024,
     genre: Types_1.BookGenre.SCIENCE
 };
+// const bookTwo: BookDetails = {
+//   title: '',
+//   author: '',
+//   publishedYear: ,
+//   genre: BookGenre.BIOGRAPHY
+// }
 const bookOne1 = new Book(bookOne);
+// const bookTwo2 = new Book(bookTwo)
 bookOne1.getBookDetails();
+// console.log(bookTwo2);
+console.log(bookOne1.getBookDetails());

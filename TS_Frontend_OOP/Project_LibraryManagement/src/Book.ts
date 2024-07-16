@@ -6,14 +6,15 @@ export class Book {
   private _publishedYear: number
   private _genre : BookGenre 
 
-  constructor(book: BookDetails) { //how to set default parameters?
+  // improve properly default parameters
+  constructor(book: BookDetails = {title: '', author: '', publishedYear: 2000, genre: BookGenre.SCIENCE}) { //how to set default parameters?
     this._title = book.title
     this._author = book.author
     this._publishedYear = book.publishedYear
     this._genre = book.genre
   }
   
-  // code some validation to the getters
+  // code some validation to the setters
   get title(): string {
     return this._title
   }
@@ -46,15 +47,12 @@ export class Book {
     this._genre = genre
   }
 
-  // Is it okay to use arrow function here but not with the getters and setters?
-  getBookDetails = (): void => {
+  getBookDetails = (): string => {
     const {title, author, publishedYear, genre} = this
-    console.log(`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
+     return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
   } 
 }
 
-// I'm not sure if this is the right way to do it. It seems I am repeating
-// If it is right, how to name this object and the instance?
 const bookOne: BookDetails = {
   title: 'Cat Kingdom',
   author: 'Franci',
@@ -63,5 +61,3 @@ const bookOne: BookDetails = {
 }
 
 const bookOne1 = new Book(bookOne)
-
-bookOne1.getBookDetails();

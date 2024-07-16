@@ -13,7 +13,7 @@ class Library {
             this.books = this.books.filter((book) => book.title !== title);
         };
         this.getBooks = () => {
-            return this.books;
+            return this.books.map(book => book.getBookDetails());
         };
         this.name = libray.name;
         this.address = libray.address;

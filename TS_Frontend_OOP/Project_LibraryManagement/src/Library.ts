@@ -1,7 +1,7 @@
 // Is it because Library interface will not be imported from the other files that we creacre it inside the Library file?
 
 import { Book } from './Book';
-import { BookDetails, BookGenre } from './Types';
+import { BookDetails } from './Types';
 
 interface LibraryDetails {
   name: string;
@@ -28,7 +28,7 @@ export class Library {
     this.books = this.books.filter((book) => book.title !== title);
   };
 
-  getBooks = (): Book[] => {
-    return this.books;
+  getBooks = () => {
+    return this.books.map(book => book.getBookDetails());
   };
 }

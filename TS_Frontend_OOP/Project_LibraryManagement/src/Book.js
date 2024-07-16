@@ -5,10 +5,6 @@ const Types_1 = require("./Types");
 class Book {
     // improve properly default parameters
     constructor(book = { title: '', author: '', publishedYear: 2000, genre: Types_1.BookGenre.SCIENCE }) {
-        this.getBookDetails = () => {
-            const { title, author, publishedYear, genre } = this;
-            return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
-        };
         this._title = book.title;
         this._author = book.author;
         this._publishedYear = book.publishedYear;
@@ -38,6 +34,10 @@ class Book {
     }
     set genre(genre) {
         this._genre = genre;
+    }
+    getBookDetails() {
+        const { title, author, publishedYear, genre } = this;
+        return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
     }
 }
 exports.Book = Book;

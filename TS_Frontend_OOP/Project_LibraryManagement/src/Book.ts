@@ -1,10 +1,10 @@
 import { BookDetails, BookGenre } from "./Types";
 
 export class Book {
-  private _title: string
-  private _author: string
-  private _publishedYear: number
-  private _genre : BookGenre 
+  protected _title: string
+  protected _author: string
+  protected _publishedYear: number
+  protected _genre : BookGenre 
 
   // improve properly default parameters
   constructor(book: BookDetails = {title: '', author: '', publishedYear: 2000, genre: BookGenre.SCIENCE}) { //how to set default parameters?
@@ -47,7 +47,7 @@ export class Book {
     this._genre = genre
   }
 
-  getBookDetails = (): string => {
+  getBookDetails(): string {
     const {title, author, publishedYear, genre} = this
      return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
   } 

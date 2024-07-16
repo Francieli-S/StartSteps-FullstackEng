@@ -11,3 +11,20 @@ export interface BookDetails {
   publishedYear: number
   genre: BookGenre
 }
+
+export interface LibraryDetails {
+  name: string;
+  address: string;
+}
+
+export enum DigitalBookFormat {
+  PDF = 'pdf',
+  EPUB = 'epub',
+  MOBI = 'mobi',
+  AUDIO = 'audio',
+}
+
+// export interface DigitalBookDetails extends BookDetails {
+//   format: DigitalBookFormat
+//   fileSize: number
+// }

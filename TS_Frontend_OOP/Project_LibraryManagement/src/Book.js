@@ -35,12 +35,13 @@ class Book {
     set genre(genre) {
         this._genre = genre;
     }
+    // it returns Book { but with those _}!!
     getBookDetails() {
         return {
-            title: this._title,
-            author: this._author,
-            publishedYear: this._publishedYear,
-            genre: this._genre
+            title: this.title,
+            author: this.author,
+            publishedYear: this.publishedYear,
+            genre: this.genre
         };
     }
 }
@@ -52,3 +53,4 @@ const bookOne = {
     genre: Types_1.BookGenre.SCIENCE
 };
 const bookOne1 = new Book(bookOne);
+console.log(bookOne1);

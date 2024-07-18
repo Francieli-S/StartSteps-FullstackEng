@@ -21,11 +21,11 @@ class AudioBook extends DigitalBook_1.DigitalBook {
     set narrator(narrator) {
         this._narrator = narrator;
     }
+    // it returns a digital and an audiobook as objects
+    // Override
     getBookDetails() {
-        const digitalBookDetails = super.getBookDetails();
-        return Object.assign(Object.assign({}, digitalBookDetails), { duration: this._duration, narrator: this._narrator });
-        // const {title, author, publishedYear, genre, format, fileSize, duration, narrator} = this
-        // return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB, Duration: ${duration}min, Narrator: ${narrator}.`);
+        const bookDetails = super.getBookDetails();
+        return Object.assign(Object.assign({}, bookDetails), { duration: this._duration, narrator: this._narrator });
     }
 }
 exports.AudioBook = AudioBook;

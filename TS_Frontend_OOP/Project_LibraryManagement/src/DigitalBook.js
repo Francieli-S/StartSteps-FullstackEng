@@ -21,11 +21,11 @@ class DigitalBook extends Book_1.Book {
     set fileSize(fileSize) {
         this._fileSize = fileSize;
     }
+    // it returns a book and a digitalbook as objects
+    // Override
     getBookDetails() {
         const bookDetails = super.getBookDetails();
         return Object.assign(Object.assign({}, bookDetails), { format: this._format, fileSize: this._fileSize });
-        // const {title, author, publishedYear, genre, format, fileSize} = this
-        // return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB`);
     }
 }
 exports.DigitalBook = DigitalBook;

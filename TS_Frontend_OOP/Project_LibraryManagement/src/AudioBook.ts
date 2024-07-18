@@ -26,12 +26,11 @@ export class AudioBook extends DigitalBook {
   set narrator(narrator: string) {
     this._narrator = narrator
   }
-
+  // it returns a digital and an audiobook as objects
+  // Override
   getBookDetails(): AudioBookDetails {
-    const digitalBookDetails = super.getBookDetails()
-    return {...digitalBookDetails, duration: this._duration , narrator: this._narrator}
-    // const {title, author, publishedYear, genre, format, fileSize, duration, narrator} = this
-    // return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB, Duration: ${duration}min, Narrator: ${narrator}.`);
+    const bookDetails = super.getBookDetails()
+    return {...bookDetails, duration: this._duration , narrator: this._narrator}
   }
 }
 

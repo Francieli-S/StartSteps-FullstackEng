@@ -39,20 +39,20 @@ export class Book {
     this._publishedYear = publishedYear
   }
 
-  get genre(): string {
+  get genre(): BookGenre {
     return this._genre
   }
 
   set genre(genre: BookGenre) {
     this._genre = genre
   }
-
+  // it returns Book { but with those _}!!
   getBookDetails(): BookDetails {
     return {
-      title: this._title,
-      author: this._author,
-      publishedYear: this._publishedYear,
-      genre: this._genre
+      title: this.title,
+      author: this.author,
+      publishedYear: this.publishedYear,
+      genre: this.genre
     }
   } 
 }
@@ -65,3 +65,4 @@ const bookOne: BookDetails = {
 }
 
 const bookOne1 = new Book(bookOne)
+console.log(bookOne1);

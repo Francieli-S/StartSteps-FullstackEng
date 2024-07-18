@@ -1,8 +1,7 @@
 import { Book } from "./Book";
-import { BookDetails, DigitalBookFormat, DigitalBookDetails, BookGenre } from "./Types";
+import { DigitalBookFormat, DigitalBookDetails, BookGenre } from "./Types";
 
 export class DigitalBook extends Book {
-  // maybe change from private to protected later
   private _format: DigitalBookFormat
   private _fileSize: number // MB
 
@@ -12,7 +11,7 @@ export class DigitalBook extends Book {
     this._fileSize = digitalBookDetail.fileSize;
   }
 
-  get format(): string {
+  get format(): DigitalBookFormat {
     return this._format 
   }
 
@@ -28,11 +27,11 @@ export class DigitalBook extends Book {
     this._fileSize = fileSize
   }
   
+  // it returns a book and a digitalbook as objects
+  // Override
   getBookDetails(): DigitalBookDetails {
     const bookDetails = super.getBookDetails()
     return {...bookDetails, format: this._format , fileSize: this._fileSize}
-    // const {title, author, publishedYear, genre, format, fileSize} = this
-    // return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB`);
   }
 }
 

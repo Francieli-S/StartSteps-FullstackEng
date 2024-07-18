@@ -1,5 +1,6 @@
 "use strict";
 class MathOperation {
+    // implementation (compiling time):
     add(a, b) {
         if (b) {
             return a + b;

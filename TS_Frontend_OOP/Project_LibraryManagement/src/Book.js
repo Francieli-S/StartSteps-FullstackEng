@@ -4,11 +4,11 @@ exports.Book = void 0;
 const Types_1 = require("./Types");
 class Book {
     // improve properly default parameters
-    constructor(book = { title: '', author: '', publishedYear: 2000, genre: Types_1.BookGenre.SCIENCE }) {
-        this._title = book.title;
-        this._author = book.author;
-        this._publishedYear = book.publishedYear;
-        this._genre = book.genre;
+    constructor(bookDetails = { title: '', author: '', publishedYear: 2000, genre: Types_1.BookGenre.SCIENCE }) {
+        this._title = bookDetails.title;
+        this._author = bookDetails.author;
+        this._publishedYear = bookDetails.publishedYear;
+        this._genre = bookDetails.genre;
     }
     // code some validation to the setters
     get title() {

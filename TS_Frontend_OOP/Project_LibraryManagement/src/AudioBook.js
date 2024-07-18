@@ -4,10 +4,10 @@ exports.AudioBook = void 0;
 const DigitalBook_1 = require("./DigitalBook");
 const Types_1 = require("./Types");
 class AudioBook extends DigitalBook_1.DigitalBook {
-    constructor(book, format, fileSize, duration, narrator) {
-        super(book, format, fileSize);
-        this._duration = duration;
-        this._narrator = narrator;
+    constructor(audioBookDetails) {
+        super(audioBookDetails);
+        this._duration = audioBookDetails.duration;
+        this._narrator = audioBookDetails.narrator;
     }
     get duration() {
         return this._duration;
@@ -21,6 +21,7 @@ class AudioBook extends DigitalBook_1.DigitalBook {
     set narrator(narrator) {
         this._narrator = narrator;
     }
+    // There is something wrong here, double console log
     getBookDetails() {
         super.getBookDetails();
         const { title, author, publishedYear, genre, format, fileSize, duration, narrator } = this;
@@ -33,7 +34,10 @@ const audioBookOne = {
     author: 'Franci',
     publishedYear: 2024,
     genre: Types_1.BookGenre.SCIENCE,
+    format: Types_1.DigitalBookFormat.MOBI,
+    fileSize: 2,
+    duration: 90,
+    narrator: 'Foxy'
 };
-const newAudioBook = new AudioBook(audioBookOne, Types_1.DigitalBookFormat.MOBI, 2, 90, 'Foxy');
-console.log(newAudioBook);
+const newAudioBook = new AudioBook(audioBookOne);
 console.log(newAudioBook.getBookDetails());

@@ -7,11 +7,11 @@ export class Book {
   protected _genre : BookGenre 
 
   // improve properly default parameters
-  constructor(book: BookDetails = {title: '', author: '', publishedYear: 2000, genre: BookGenre.SCIENCE}) { //how to set default parameters?
-    this._title = book.title
-    this._author = book.author
-    this._publishedYear = book.publishedYear
-    this._genre = book.genre
+  constructor(bookDetails: BookDetails = {title: '', author: '', publishedYear: 2000, genre: BookGenre.SCIENCE}) { //how to set default parameters?
+    this._title = bookDetails.title
+    this._author = bookDetails.author
+    this._publishedYear = bookDetails.publishedYear
+    this._genre = bookDetails.genre
   }
   
   // code some validation to the setters

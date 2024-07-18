@@ -15,7 +15,3 @@ var DigitalBookFormat;
     DigitalBookFormat["MOBI"] = "mobi";
     DigitalBookFormat["AUDIO"] = "audio";
 })(DigitalBookFormat || (exports.DigitalBookFormat = DigitalBookFormat = {}));
-// export interface DigitalBookDetails extends BookDetails {
-//   format: DigitalBookFormat
-//   fileSize: number
-// }

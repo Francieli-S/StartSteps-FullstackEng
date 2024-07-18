@@ -24,7 +24,14 @@ export enum DigitalBookFormat {
   AUDIO = 'audio',
 }
 
-// export interface DigitalBookDetails extends BookDetails {
-//   format: DigitalBookFormat
-//   fileSize: number
-// }
+export interface DigitalBookDetails extends BookDetails {
+  format: DigitalBookFormat
+  fileSize: number
+}
+
+export interface AudioBookDetails extends DigitalBookDetails {
+  duration: number
+  narrator: string
+}
+
+export type AnyBookProps = BookDetails | DigitalBookDetails | AudioBookDetails

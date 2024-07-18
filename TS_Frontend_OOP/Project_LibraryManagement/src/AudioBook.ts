@@ -1,14 +1,14 @@
 import { DigitalBook } from "./DigitalBook";
-import { BookDetails, DigitalBookFormat, BookGenre } from "./Types";
+import { DigitalBookFormat, BookGenre, AudioBookDetails } from "./Types";
 
 export class AudioBook extends DigitalBook {
   private _duration: number // min
   private _narrator: string
 
-  constructor(book: BookDetails, format: DigitalBookFormat, fileSize: number, duration: number, narrator: string) {
-    super(book, format, fileSize)
-    this._duration = duration
-    this._narrator = narrator
+  constructor(audioBookDetails: AudioBookDetails) {
+    super(audioBookDetails)
+    this._duration = audioBookDetails.duration
+    this._narrator = audioBookDetails.narrator
   }
 
   get duration(): number {
@@ -27,20 +27,24 @@ export class AudioBook extends DigitalBook {
     this._narrator = narrator
   }
 
-  getBookDetails() {
-    super.getBookDetails()
-    const {title, author, publishedYear, genre, format, fileSize, duration, narrator} = this
-    return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB, Duration: ${duration}min, Narrator: ${narrator}.`);
+  getBookDetails(): AudioBookDetails {
+    const digitalBookDetails = super.getBookDetails()
+    return {...digitalBookDetails, duration: this._duration , narrator: this._narrator}
+    // const {title, author, publishedYear, genre, format, fileSize, duration, narrator} = this
+    // return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB, Duration: ${duration}min, Narrator: ${narrator}.`);
   }
 }
 
-const audioBookOne: BookDetails = {
+const audioBookOne: AudioBookDetails = {
   title: 'Cat Kingdom',
   author: 'Franci',
   publishedYear: 2024,
   genre: BookGenre.SCIENCE,
+  format: DigitalBookFormat.MOBI,
+  fileSize: 2,
+  duration: 90,
+  narrator: 'Foxy'
 }
 
-const newAudioBook = new AudioBook(audioBookOne, DigitalBookFormat.MOBI, 2, 90, 'Foxy')
-console.log(newAudioBook);
+const newAudioBook = new AudioBook(audioBookOne)
 console.log(newAudioBook.getBookDetails());

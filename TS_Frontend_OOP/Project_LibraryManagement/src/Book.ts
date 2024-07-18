@@ -47,9 +47,13 @@ export class Book {
     this._genre = genre
   }
 
-  getBookDetails(): string {
-    const {title, author, publishedYear, genre} = this
-     return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
+  getBookDetails(): BookDetails {
+    return {
+      title: this._title,
+      author: this._author,
+      publishedYear: this._publishedYear,
+      genre: this._genre
+    }
   } 
 }
 

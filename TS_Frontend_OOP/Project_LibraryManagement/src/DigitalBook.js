@@ -21,11 +21,11 @@ class DigitalBook extends Book_1.Book {
     set fileSize(fileSize) {
         this._fileSize = fileSize;
     }
-    // There is something wrong here, double console log
     getBookDetails() {
-        super.getBookDetails();
-        const { title, author, publishedYear, genre, format, fileSize } = this;
-        return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB`);
+        const bookDetails = super.getBookDetails();
+        return Object.assign(Object.assign({}, bookDetails), { format: this._format, fileSize: this._fileSize });
+        // const {title, author, publishedYear, genre, format, fileSize} = this
+        // return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB`);
     }
 }
 exports.DigitalBook = DigitalBook;
@@ -38,5 +38,4 @@ const digitalBookOne = {
     fileSize: 2
 };
 const newDigBook = new DigitalBook(digitalBookOne);
-console.log(newDigBook);
 console.log(newDigBook.getBookDetails());

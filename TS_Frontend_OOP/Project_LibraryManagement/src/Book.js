@@ -36,8 +36,12 @@ class Book {
         this._genre = genre;
     }
     getBookDetails() {
-        const { title, author, publishedYear, genre } = this;
-        return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}.`);
+        return {
+            title: this._title,
+            author: this._author,
+            publishedYear: this._publishedYear,
+            genre: this._genre
+        };
     }
 }
 exports.Book = Book;

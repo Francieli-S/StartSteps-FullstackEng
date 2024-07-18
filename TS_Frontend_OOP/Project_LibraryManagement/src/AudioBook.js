@@ -21,11 +21,11 @@ class AudioBook extends DigitalBook_1.DigitalBook {
     set narrator(narrator) {
         this._narrator = narrator;
     }
-    // There is something wrong here, double console log
     getBookDetails() {
-        super.getBookDetails();
-        const { title, author, publishedYear, genre, format, fileSize, duration, narrator } = this;
-        return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB, Duration: ${duration}min, Narrator: ${narrator}.`);
+        const digitalBookDetails = super.getBookDetails();
+        return Object.assign(Object.assign({}, digitalBookDetails), { duration: this._duration, narrator: this._narrator });
+        // const {title, author, publishedYear, genre, format, fileSize, duration, narrator} = this
+        // return (`Title: ${title}, Author: ${author}, Published Year: ${publishedYear}, Genre: ${genre}, Format: ${format}, File Size: ${fileSize}MB, Duration: ${duration}min, Narrator: ${narrator}.`);
     }
 }
 exports.AudioBook = AudioBook;

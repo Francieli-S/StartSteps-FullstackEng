@@ -224,3 +224,23 @@ function calculateSquareArea(args) {
     console.log(args.lenght * args.width);
 }
 calculateSquareArea({ lenght: 2, width: 3 });
+// TYPE GUARDS  
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+const newPerson = new Person('Gato', 8);
+// instanceof
+if (newPerson instanceof Person) {
+    console.log('This obj is an instance of Person class.');
+}
+// typeof
+if (typeof newPerson === 'string') {
+    console.log('This is an object');
+}
+// in
+if ('age' in newPerson) {
+    console.log('The property age exist in newPerson object.');
+}

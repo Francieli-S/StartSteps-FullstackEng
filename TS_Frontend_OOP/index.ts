@@ -371,7 +371,6 @@ pickUserProp({name: 'Foxy', hobby: 'dancing'})
 omitUserProp({id: '1', motherName: 'Mommy'})
 
 // READONLY utility - will transform all props of the type T in order to make them not reassignable with new values
-
 interface Square {
   lenght: number
   width: number
@@ -384,3 +383,31 @@ function calculateSquareArea(args: Readonly<Square>) {
 }
 
 calculateSquareArea({lenght: 2, width: 3})
+
+// TYPE GUARDS  
+class Person {
+  name: string
+  age: number
+  
+  constructor(name: string, age: number) {
+    this.name = name
+    this.age = age
+  }
+}
+
+const newPerson = new Person('Gato', 8)
+
+// instanceof
+if (newPerson instanceof Person) {
+  console.log('This obj is an instance of Person class.');
+}
+
+// typeof
+if (typeof newPerson === 'string') {
+  console.log('This is an object');
+}
+
+// in
+if ('age' in newPerson) {
+  console.log('The property age exist in newPerson object.');
+}

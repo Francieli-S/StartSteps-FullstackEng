@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class MathOperation {
     // implementation (compiling time):
     add(a, b) {

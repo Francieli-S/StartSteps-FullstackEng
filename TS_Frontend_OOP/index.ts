@@ -348,4 +348,39 @@ function createNewUserBankAccount(args: Required<UserBankAccount>) {
 
 // createNewUserBankAccount({name: 'Foxy'}) // it does not work
 createNewUserBankAccount({id: '1', name: 'Foxy', hobbies: ['dancing'], motherName: 'Mommy'})
+
+// PICK and OMIT utility - Pick<T,K> Omit<T,K>
+interface AnotherUser {
+  id: string
+  name: string
+  hobby: string
+  motherName: string
+}
+
+function pickUserProp(args: Pick<AnotherUser, 'name' | 'hobby'>) {
+  console.log(args);
+}
+function omitUserProp(args: Omit<AnotherUser, 'name' | 'hobby'>) {
+  console.log(args);
+}
+
+// pickUserProp({name: 'Foxy', hobby: 'dancing', motherName: 'Mommy'}) // it does not work
+pickUserProp({name: 'Foxy', hobby: 'dancing'})
  
+// omitUserProp({name: 'Foxy', hobby: 'dancing', motherName: 'Mommy'}) // it does not work
+omitUserProp({id: '1', motherName: 'Mommy'})
+
+// READONLY utility - will transform all props of the type T in order to make them not reassignable with new values
+
+interface Square {
+  lenght: number
+  width: number
+}
+
+function calculateSquareArea(args: Readonly<Square>) {
+  // args.lenght = 10 // it is not possible
+  // args.width = 11 // it is not possible
+  console.log(args.lenght * args.width);
+}
+
+calculateSquareArea({lenght: 2, width: 3})

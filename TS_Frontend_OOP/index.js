@@ -208,3 +208,19 @@ function createNewUserBankAccount(args) {
 }
 // createNewUserBankAccount({name: 'Foxy'}) // it does not work
 createNewUserBankAccount({ id: '1', name: 'Foxy', hobbies: ['dancing'], motherName: 'Mommy' });
+function pickUserProp(args) {
+    console.log(args);
+}
+function omitUserProp(args) {
+    console.log(args);
+}
+// pickUserProp({name: 'Foxy', hobby: 'dancing', motherName: 'Mommy'}) // it does not work
+pickUserProp({ name: 'Foxy', hobby: 'dancing' });
+// omitUserProp({name: 'Foxy', hobby: 'dancing', motherName: 'Mommy'}) // it does not work
+omitUserProp({ id: '1', motherName: 'Mommy' });
+function calculateSquareArea(args) {
+    // args.lenght = 10 // it is not possible
+    // args.width = 11 // it is not possible
+    console.log(args.lenght * args.width);
+}
+calculateSquareArea({ lenght: 2, width: 3 });

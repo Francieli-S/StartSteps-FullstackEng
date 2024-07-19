@@ -1,7 +1,9 @@
 // Is it because Library interface will not be imported from the other files that we creacre it inside the Library file?
 
+import { AudioBook } from './AudioBook';
 import { Book } from './Book';
-import { BookDetails, LibraryDetails } from './Types';
+import { DigitalBook } from './DigitalBook';
+import { AnyBookProps, BookDetails, LibraryDetails } from './Types';
 
 export class Library {
   private name: string;
@@ -14,8 +16,21 @@ export class Library {
     this.books = [];
   }
 
-  addBook(book: Book): void {
-    this.books.push(book)
+  addBook(book: Book): void;
+  addBook(book: DigitalBook): void;
+  addBook(book: AudioBook): void;
+  addBook(book: any): void {
+    let newBook = book;
+    if ('narrator' in book) {
+      newBook = new AudioBook(book);
+      
+    } else if ('format' in book) {
+      newBook = new DigitalBook(book);
+      
+    } else {
+      newBook = new Book(book);
+    }
+    this.books.push(book);
   }
 
   // addBook = (bookDetails: BookDetails | DigitalBookDetails | AudioBookDetails) => {
@@ -53,6 +68,6 @@ export class Library {
   };
 
   getBookDescription = (): string[] => {
-    return this.books.map(book => JSON.stringify(book.getBookDetails()))
-  }
+    return this.books.map((book) => JSON.stringify(book.getBookDetails()));
+  };
 }

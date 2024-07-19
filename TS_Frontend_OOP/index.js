@@ -172,3 +172,39 @@ const entityOne = new Entity('Entity One', 'Stralauer Platy');
 // entityOne.address = 'another one' // as address is readonly, it can't be changed.
 console.log('checking the date by using the method getCreationDate(): ', entityOne.getCreationDate());
 console.log(entityOne);
+function showIntersectionType(args) {
+    console.log(args);
+}
+showIntersectionType({ id: 1, left: 'test', right: 'test' });
+function showGenericTypes(args) {
+    console.log(args);
+}
+function showGenericTypes2(args) {
+    console.log(args);
+}
+function showGenericTypes3(args) {
+    console.log(args);
+}
+// In these examples id is always a number...
+showGenericTypes({ id: 1, name: 'test', address: 'address one' }); // name and address should be string
+showGenericTypes2({ id: 1, name: 2, address: 'address one' }); // name should be number and address string
+showGenericTypes3({ id: 1, name: ['hi'], address: [11] }); // both should be array, name as string, address as number
+// another example using direct in the function:
+function genrericType(arg) {
+    return arg;
+}
+console.log(genrericType([1, 2]));
+console.log(genrericType([{ name: 'test', id: 1 }]));
+const newUser = {
+    id: true,
+    name: false
+};
+function createNewUserAccount(args) {
+    console.log(args);
+}
+createNewUserAccount({ name: 'Foxy' }); // calling the function with just one arg is ok
+function createNewUserBankAccount(args) {
+    console.log(args);
+}
+// createNewUserBankAccount({name: 'Foxy'}) // it does not work
+createNewUserBankAccount({ id: '1', name: 'Foxy', hobbies: ['dancing'], motherName: 'Mommy' });

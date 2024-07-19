@@ -255,5 +255,97 @@ const entityOne = new Entity('Entity One', 'Stralauer Platy')
 console.log('checking the date by using the method getCreationDate(): ', entityOne.getCreationDate()); 
 console.log(entityOne);
 
+// ADVANCED TYPES 
+// INTERSECTION - & - combining multiple types
+type LeftType = {
+  id: number
+  left: string
+}
+
+type RightType = {
+  id: number
+  right: string
+}
+
+function showIntersectionType(args: LeftType & RightType) {
+  console.log(args);
+}
+
+showIntersectionType({id: 1, left: 'test', right: 'test'})
+
+// GENERIC - T - reusing part of a given type - this 'T' means that we are going to define this type later
+interface GenericType<T, U> {
+  id: number
+  name: T
+  address: U
+}
+
+function showGenericTypes(args: GenericType<string, string>) {
+  console.log(args);
+}
+
+function showGenericTypes2(args: GenericType<number, string>) {
+  console.log(args);
+}
+
+function showGenericTypes3(args: GenericType<string[], number[]>) {
+  console.log(args);
+}
+// In these examples id is always a number...
+showGenericTypes({id: 1, name: 'test', address: 'address one'}) // name and address should be string
+showGenericTypes2({id: 1, name: 2, address: 'address one'}) // name should be number and address string
+showGenericTypes3({id: 1, name: ['hi'], address: [11]}) // both should be array, name as string, address as number
+
+// another example using direct in the function:
+function genrericType<T>(arg: T[]): T[] {
+  return arg;
+}
+console.log(genrericType([1, 2]));
+console.log(genrericType([{name: 'test', id: 1}]));
+
+// MAPPED TYPE - allows me to take an existing type and transform each of its props into a new type
+type userType = {
+  id: number
+  name: string
+}
+
+type TransformToBoolean<T> = {
+  [PROPS in keyof T]: boolean // it says: transform all the props original types to boolean
+}
+
+const newUser: TransformToBoolean<userType> = {
+  id: true,
+  name: false
+}
+
+// PARTIAL - allows me to make ALL prop of the type T optinal just by adding 'Partial' keyword in the arg field
+interface UserAccount {
+  id: string
+  name: string
+  hobbies: string[]
+  motherName: string
+}
+
+function createNewUserAccount(args: Partial<UserAccount>) {
+  console.log(args);
+}
+
+createNewUserAccount({name: 'Foxy'}) // calling the function with just one arg is ok
 
 
+// REQUIRED - allows me to make ALL prop of a type required (considering that when this type was created it used some optional props)
+// it is usefull when these type has been used but for some functionality and for not having to create a new type, we can use 'REQUIRED'
+interface UserBankAccount {
+  id: string
+  name: string
+  hobbies?: string[]
+  motherName?: string
+}
+
+function createNewUserBankAccount(args: Required<UserBankAccount>) {
+  console.log(args);
+}
+
+// createNewUserBankAccount({name: 'Foxy'}) // it does not work
+createNewUserBankAccount({id: '1', name: 'Foxy', hobbies: ['dancing'], motherName: 'Mommy'})
+ 

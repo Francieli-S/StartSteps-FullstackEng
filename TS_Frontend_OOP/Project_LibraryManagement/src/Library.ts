@@ -3,7 +3,7 @@
 import { AudioBook } from './AudioBook';
 import { Book } from './Book';
 import { DigitalBook } from './DigitalBook';
-import { AnyBookProps, BookDetails, LibraryDetails } from './Types';
+import { AnyBookProps, AudioBookDetails, BookDetails, DigitalBookDetails, LibraryDetails } from './Types';
 
 export class Library {
   private name: string;
@@ -15,11 +15,12 @@ export class Library {
     this.address = librayDetails.address;
     this.books = [];
   }
-
+  //function signatures:
   addBook(book: Book): void;
-  addBook(book: DigitalBook): void;
-  addBook(book: AudioBook): void;
-  addBook(book: any): void {
+  addBook(book: BookDetails): void;
+  addBook(book: DigitalBookDetails): void;
+  addBook(book: AudioBookDetails): void;
+  addBook(book: Book | AnyBookProps): void {
     let newBook = book;
     if ('narrator' in book) {
       newBook = new AudioBook(book);
@@ -30,34 +31,8 @@ export class Library {
     } else {
       newBook = new Book(book);
     }
-    this.books.push(book);
+    this.books.push(newBook);
   }
-
-  // addBook = (bookDetails: BookDetails | DigitalBookDetails | AudioBookDetails) => {
-  //   const newBook = new Book (bookDetails)
-  //   this.books.push(newBook)
-  // }
-  // private isDigitalBook(
-  //   typeOfBook: AnyBookProps
-  // ): typeOfBook is DigitalBookDetails {
-  //   return (typeOfBook as DigitalBookDetails).fileSize !== undefined;
-  // }
-  // private isAudioBook(
-  //   typeOfBook: AnyBookProps
-  // ): typeOfBook is AudioBookDetails {
-  //   return (typeOfBook as AudioBookDetails).narrator !== '';
-  // }
-  // addBook = (typeOfBook: AnyBookProps): void => {
-  //   let newBook;
-  //   if (this.isDigitalBook(typeOfBook)) {
-  //     newBook = new DigitalBook(typeOfBook);
-  //   } else if (this.isAudioBook(typeOfBook)) {
-  //     newBook = new AudioBook(typeOfBook);
-  //   } else {
-  //     newBook = new Book(typeOfBook);
-  //   }
-  //   this.books.push(newBook);
-  // };
 
   removeBook = (title: string): void => {
     this.books = this.books.filter((book) => book.title !== title);

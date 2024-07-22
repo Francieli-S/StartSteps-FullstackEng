@@ -56,7 +56,7 @@ class Library {
         else {
             newBook = new Book_1.Book(book);
         }
-        this.books.push(book);
+        this.books.push(newBook);
     }
 }
 exports.Library = Library;

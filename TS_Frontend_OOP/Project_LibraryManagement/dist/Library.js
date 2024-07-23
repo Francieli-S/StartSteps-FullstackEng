@@ -7,31 +7,6 @@ const Book_1 = require("./Book");
 const DigitalBook_1 = require("./DigitalBook");
 class Library {
     constructor(librayDetails) {
-        // addBook = (bookDetails: BookDetails | DigitalBookDetails | AudioBookDetails) => {
-        //   const newBook = new Book (bookDetails)
-        //   this.books.push(newBook)
-        // }
-        // private isDigitalBook(
-        //   typeOfBook: AnyBookProps
-        // ): typeOfBook is DigitalBookDetails {
-        //   return (typeOfBook as DigitalBookDetails).fileSize !== undefined;
-        // }
-        // private isAudioBook(
-        //   typeOfBook: AnyBookProps
-        // ): typeOfBook is AudioBookDetails {
-        //   return (typeOfBook as AudioBookDetails).narrator !== '';
-        // }
-        // addBook = (typeOfBook: AnyBookProps): void => {
-        //   let newBook;
-        //   if (this.isDigitalBook(typeOfBook)) {
-        //     newBook = new DigitalBook(typeOfBook);
-        //   } else if (this.isAudioBook(typeOfBook)) {
-        //     newBook = new AudioBook(typeOfBook);
-        //   } else {
-        //     newBook = new Book(typeOfBook);
-        //   }
-        //   this.books.push(newBook);
-        // };
         this.removeBook = (title) => {
             this.books = this.books.filter((book) => book.title !== title);
         };
@@ -40,6 +15,16 @@ class Library {
         };
         this.getBookDescription = () => {
             return this.books.map((book) => JSON.stringify(book.getBookDetails()));
+        };
+        this.displayLibrary = () => {
+            console.log(this.books);
+            const booksDisplay = document.getElementById('book-list');
+            const booksList = this.books.map((book) => {
+                const bookElement = document.createElement('li');
+                bookElement.className = 'book';
+                bookElement.textContent = `${book.title}`;
+                booksDisplay.appendChild(bookElement);
+            });
         };
         this.name = librayDetails.name;
         this.address = librayDetails.address;
@@ -56,7 +41,7 @@ class Library {
         else {
             newBook = new Book_1.Book(book);
         }
-        this.books.push(newBook);
+        //this.books.push(newBook);
     }
 }
 exports.Library = Library;

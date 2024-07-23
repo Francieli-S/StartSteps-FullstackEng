@@ -3,7 +3,13 @@
 import { AudioBook } from './AudioBook';
 import { Book } from './Book';
 import { DigitalBook } from './DigitalBook';
-import { AnyBookProps, AudioBookDetails, BookDetails, DigitalBookDetails, LibraryDetails } from './Types';
+import {
+  AnyBookProps,
+  AudioBookDetails,
+  BookDetails,
+  DigitalBookDetails,
+  LibraryDetails,
+} from './Types';
 
 export class Library {
   private name: string;
@@ -24,14 +30,12 @@ export class Library {
     let newBook = book;
     if ('narrator' in book) {
       newBook = new AudioBook(book);
-      
     } else if ('format' in book) {
       newBook = new DigitalBook(book);
-      
     } else {
       newBook = new Book(book);
     }
-    this.books.push(newBook);
+    //this.books.push(newBook);
   }
 
   removeBook = (title: string): void => {
@@ -44,5 +48,19 @@ export class Library {
 
   getBookDescription = (): string[] => {
     return this.books.map((book) => JSON.stringify(book.getBookDetails()));
+  };
+
+  displayLibrary = (): void => {
+    console.log(this.books);
+    const booksDisplay = document.getElementById(
+      'book-list'
+    ) as HTMLUListElement;
+    
+    const booksList = this.books.map((book) => {
+      const bookElement = document.createElement('li');
+      bookElement.className = 'book';
+      bookElement.textContent = `${book.title}`;
+      booksDisplay.appendChild(bookElement);
+    });
   };
 }

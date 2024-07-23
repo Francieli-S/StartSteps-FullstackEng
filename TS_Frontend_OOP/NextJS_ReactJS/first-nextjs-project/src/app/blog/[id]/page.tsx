@@ -1,9 +1,9 @@
-type Param = {
-  param: {
-    id: number
+type Params = {
+  params: {
+    id: string
   }
 }
 
-export default function Blog({ param }: Param) {
-  return <p>Param: {param.id}</p>
+export default function Blog({ params }: Params) {
+  return <p>Params: {params.id}</p>
 }

@@ -1,5 +1,5 @@
 const greeting = 'Hello NextJS';
 
 export default function About() {
-  return <p>{greeting}</p>;
+  return <h1>{greeting}</h1>;
 }

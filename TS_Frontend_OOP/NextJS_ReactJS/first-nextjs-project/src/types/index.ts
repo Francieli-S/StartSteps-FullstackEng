@@ -1,3 +1,3 @@
-import { IPost, Params } from './types';
+import { IPost, PostParams } from './types';
 
-export type { IPost, Params };
+export type { IPost, PostParams };

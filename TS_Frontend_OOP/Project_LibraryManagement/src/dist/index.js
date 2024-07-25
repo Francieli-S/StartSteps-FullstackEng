@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-import { Library } from "./Library";
-import { BookGenre, DigitalBookFormat } from "./Types";
+import { Library } from './Library';
+import { BookGenre, DigitalBookFormat } from './Types';
 const library = new Library({ name: 'City Library', address: '123 Main St' });
 library.addBook({
     title: '1984',

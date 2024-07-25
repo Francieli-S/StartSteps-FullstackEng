@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Book = void 0;
-const Types_1 = require("./Types");
-class Book {
+import { BookGenre } from "./Types";
+export class Book {
     // improve properly default parameters
-    constructor(bookDetails = { title: '', author: '', publishedYear: 2000, genre: Types_1.BookGenre.SCIENCE }) {
+    constructor(bookDetails = { title: '', author: '', publishedYear: 2000, genre: BookGenre.SCIENCE }) {
         this._title = bookDetails.title;
         this._author = bookDetails.author;
         this._publishedYear = bookDetails.publishedYear;
@@ -45,12 +42,11 @@ class Book {
         };
     }
 }
-exports.Book = Book;
 const bookOne = {
     title: 'Cat Kingdom',
     author: 'Franci',
     publishedYear: 2024,
-    genre: Types_1.BookGenre.SCIENCE
+    genre: BookGenre.SCIENCE
 };
 const bookOne1 = new Book(bookOne);
 console.log(bookOne1);

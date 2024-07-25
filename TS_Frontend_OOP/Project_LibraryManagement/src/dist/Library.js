@@ -1,11 +1,8 @@
-"use strict";
 // Is it because Library interface will not be imported from the other files that we creacre it inside the Library file?
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Library = void 0;
-const AudioBook_1 = require("./AudioBook");
-const Book_1 = require("./Book");
-const DigitalBook_1 = require("./DigitalBook");
-class Library {
+import { AudioBook } from './AudioBook';
+import { Book } from './Book';
+import { DigitalBook } from './DigitalBook';
+export class Library {
     constructor(librayDetails) {
         this.removeBook = (title) => {
             this.books = this.books.filter((book) => book.title !== title);
@@ -33,15 +30,14 @@ class Library {
     addBook(book) {
         let newBook = book;
         if ('narrator' in book) {
-            newBook = new AudioBook_1.AudioBook(book);
+            newBook = new AudioBook(book);
         }
         else if ('format' in book) {
-            newBook = new DigitalBook_1.DigitalBook(book);
+            newBook = new DigitalBook(book);
         }
         else {
-            newBook = new Book_1.Book(book);
+            newBook = new Book(book);
         }
-        //this.books.push(newBook);
+        this.books.push(newBook);
     }
 }
-exports.Library = Library;

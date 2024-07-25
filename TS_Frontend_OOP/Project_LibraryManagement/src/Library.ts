@@ -1,5 +1,3 @@
-// Is it because Library interface will not be imported from the other files that we creacre it inside the Library file?
-
 import { AudioBook } from './AudioBook';
 import { Book } from './Book';
 import { DigitalBook } from './DigitalBook';
@@ -35,7 +33,7 @@ export class Library {
     } else {
       newBook = new Book(book);
     }
-    //this.books.push(newBook);
+    this.books.push(newBook);
   }
 
   removeBook = (title: string): void => {

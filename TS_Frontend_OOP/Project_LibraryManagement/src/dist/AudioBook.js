@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AudioBook = void 0;
-const DigitalBook_1 = require("./DigitalBook");
-const Types_1 = require("./Types");
-class AudioBook extends DigitalBook_1.DigitalBook {
+import { DigitalBook } from "./DigitalBook";
+import { DigitalBookFormat, BookGenre } from "./Types";
+export class AudioBook extends DigitalBook {
     constructor(audioBookDetails) {
         super(audioBookDetails);
         this._duration = audioBookDetails.duration;
@@ -28,13 +25,12 @@ class AudioBook extends DigitalBook_1.DigitalBook {
         return Object.assign(Object.assign({}, bookDetails), { duration: this._duration, narrator: this._narrator });
     }
 }
-exports.AudioBook = AudioBook;
 const audioBookOne = {
     title: 'Cat Kingdom',
     author: 'Franci',
     publishedYear: 2024,
-    genre: Types_1.BookGenre.SCIENCE,
-    format: Types_1.DigitalBookFormat.MOBI,
+    genre: BookGenre.SCIENCE,
+    format: DigitalBookFormat.MOBI,
     fileSize: 2,
     duration: 90,
     narrator: 'Foxy'

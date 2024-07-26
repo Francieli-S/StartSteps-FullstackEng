@@ -1,5 +1,8 @@
-
+'use client'
 import { IPost } from '@/types'; // @ is pointing to src
+import { createContext, useContext, useState } from 'react';
+
+const DarkMode = createContext(false);
 
 const posts: IPost[] = [
   {
@@ -26,8 +29,11 @@ const posts: IPost[] = [
 ];
 
 export default function Home() {
-    return (
-    <>
+  const [dark, setDark] = useState(false);
+
+  return (
+    <DarkMode.Provider value={dark}>
+      <div className={dark ? 'bg-black text-white' : ''}>
       {posts.map((post) => (
         <div key={post.id}>
           <p>Post: {post.id}</p>
@@ -41,6 +47,28 @@ export default function Home() {
           </div>
         </div>
       ))}
+      <button onClick={() => setDark(!dark)}>Dark/Light</button>
+      <ChildOne/>
+      </div>
+    </DarkMode.Provider>
+  );
+}
+
+function ChildOne() {
+  const dark = useContext(DarkMode);
+  return (
+    <>
+      <p className={dark ? 'text-white' : ''}>ChildOne content</p>
+      <ChildTwo/>
+    </>
+  );
+}
+
+function ChildTwo() {
+  const dark = useContext(DarkMode);
+  return (
+    <>
+      <p className={dark ? 'text-white' : ''}>ChildTwo content</p>
     </>
   );
 }

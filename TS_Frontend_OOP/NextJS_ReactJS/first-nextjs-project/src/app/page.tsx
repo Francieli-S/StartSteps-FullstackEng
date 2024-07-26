@@ -1,6 +1,7 @@
 'use client'
 import { IPost } from '@/types'; // @ is pointing to src
 import { createContext, useContext, useState } from 'react';
+import Data from '../components/Data'
 
 const DarkMode = createContext(false);
 
@@ -50,6 +51,7 @@ export default function Home() {
       <button onClick={() => setDark(!dark)}>Dark/Light</button>
       <ChildOne/>
       </div>
+      <Data />
     </DarkMode.Provider>
   );
 }

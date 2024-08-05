@@ -2,6 +2,7 @@
 import { IPost } from '@/types'; // @ is pointing to src
 import { createContext, useContext, useState } from 'react';
 import Data from '../components/Data'
+import Second from '@/components/Second';
 
 export const DarkMode = createContext(false);
 
@@ -52,6 +53,7 @@ export default function Home() {
       <ChildOne/>
       </div>
       <Data />
+      <Second />
     </DarkMode.Provider>
   );
 }

@@ -1,7 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { DarkMode } from '@/app/page';
 
 export default function Data() {
+  const dark = useContext(DarkMode);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,7 +25,7 @@ export default function Data() {
   }, [data]);
 
   return (
-    <div>
+    <div className={dark ? 'bg-black text-white' : ''}>
       <p>Products</p>
       {isLoading
         ? data.map((item) => <p key={item.id}>Name: {item.name}</p>)

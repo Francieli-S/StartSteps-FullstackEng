@@ -3,7 +3,7 @@ import { IPost } from '@/types'; // @ is pointing to src
 import { createContext, useContext, useState } from 'react';
 import Data from '../components/Data'
 
-const DarkMode = createContext(false);
+export const DarkMode = createContext(false);
 
 const posts: IPost[] = [
   {

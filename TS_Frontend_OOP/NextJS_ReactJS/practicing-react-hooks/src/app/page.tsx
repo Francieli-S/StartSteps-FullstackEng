@@ -1,4 +1,5 @@
 import Counter from "../../components/Counter";
+import CounterReducer from "../../components/CounterReducer";
 import InputWithFocus from "../../components/InputWithFocus";
 
 export default function Home() {
@@ -7,6 +8,8 @@ export default function Home() {
     <Counter />
     <br />
     <InputWithFocus />
+    <br />
+    <CounterReducer />
     </>
   );
 }

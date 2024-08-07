@@ -8,8 +8,8 @@ import { configureStore } from '@reduxjs/toolkit'
 
 const store: Store<ArticleState, ArticleAction> = configureStore({ reducer })
 
-const StoreWrapper = ({ children }: React.PropsWithChildren) => {
+const StoreArticleWrapper = ({ children }: React.PropsWithChildren) => {
     return <Provider store={store}>{children}</Provider>
 }
 
-export default StoreWrapper;
+export default StoreArticleWrapper;

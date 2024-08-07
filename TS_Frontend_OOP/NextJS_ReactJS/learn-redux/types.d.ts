@@ -17,5 +17,5 @@ interface RemoveArticleAction {
 type ArticleAction = AddArticleAction | RemoveArticleAction
 
 interface ArticleState {
-  article: IArticle[]
+  articles: IArticle[]
 }

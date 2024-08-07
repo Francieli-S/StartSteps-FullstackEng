@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
-import { addArticle, removeArticle } from '../src/store/actionCreators';
+import { addArticle, removeArticle } from '../src/store-articles/actionCreators';
 import AddArticle from './AddArticle';
 import SingleArticle from './SingleArticle';
 

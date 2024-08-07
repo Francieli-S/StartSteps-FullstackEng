@@ -1,4 +1,5 @@
-import StoreWrapper from "@/store-articles/store";
+import StoreArticleWrapper from "@/store-articles/store";
+import StoreStudentWrapper from "@/store-students/store";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StoreWrapper>{children}</StoreWrapper>
+        <StoreArticleWrapper>{children}</StoreArticleWrapper>
+        <StoreStudentWrapper>{children}</StoreStudentWrapper>
       </body>
     </html>
   );

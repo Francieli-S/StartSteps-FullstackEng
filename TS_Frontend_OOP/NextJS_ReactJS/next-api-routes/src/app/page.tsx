@@ -1,4 +1,4 @@
-import FetchComponent from "./api/fetching_Example/page";
+import FetchComponent from "./fetching_example/page";
 
 export default function Home() {
   return (

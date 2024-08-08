@@ -11,7 +11,7 @@ interface ITodo {
 const FetchComponent: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[] | null>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<Error | null>();
+  // const [error, setError] = useState<Error | null>();
 
   const fetchData = async () => {
     try {
@@ -23,7 +23,7 @@ const FetchComponent: React.FC = () => {
       }
     } catch (error) {
       setLoading(false);
-      setError(error);
+      // setError(error); // in this example, the error setting gives me a warn.
     }
   }
   useEffect(() => {
@@ -53,9 +53,9 @@ const FetchComponent: React.FC = () => {
   if (loading) {
     return <p>Loading...</p>;
   }
-  if (error) {
-    return <p>An error happened: {error.message}</p>;
-  }
+  // if (error) {
+  //   return <p>An error happened: {error.message}</p>;
+  // }
   return (
     // <p>{JSON.stringify(todos, null, 2)}</p>
     todos && todos.map((todo) => (

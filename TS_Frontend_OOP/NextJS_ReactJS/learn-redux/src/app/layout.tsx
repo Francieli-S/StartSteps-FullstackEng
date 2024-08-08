@@ -1,5 +1,5 @@
-import StoreArticleWrapper from "@/store-articles/store";
-import StoreStudentWrapper from "@/store-students/store";
+import StoreArticleWrapper from "../store-articles/store";
+import StoreStudentWrapper from "../store-students/store";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

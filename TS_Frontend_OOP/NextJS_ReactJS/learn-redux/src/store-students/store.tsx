@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 const store: Store<StudentState, StudentAction> = configureStore({ reducer });
 
-const StoreStudentWrapper: React.FC = ({ children }: React.PropsWithChildren) => {
+const StoreStudentWrapper= ({ children }: React.PropsWithChildren) => {
   return <Provider store={store}>{children}</Provider>;
 };
 

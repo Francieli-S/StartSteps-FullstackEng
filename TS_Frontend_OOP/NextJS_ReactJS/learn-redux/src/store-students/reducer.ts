@@ -22,9 +22,9 @@ const reducer = (
         (student) => student.id !== action.id
       );
       return { ...state, students: updateStudents };
+    default:
+      return state;
   }
-
-  // return state;
 };
 
-export default reducer
+export default reducer;

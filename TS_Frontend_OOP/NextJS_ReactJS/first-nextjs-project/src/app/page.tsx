@@ -4,6 +4,9 @@ import { createContext, useContext, useState } from 'react';
 import Data from '../components/Data'
 import Second from '@/components/Second';
 import UseReducer from '@/components/UseReducer';
+import ButtonModuleStyle from '../components/Button/ButtonModuleStyle'
+import ButtonStyledJS from '../components/Button/ButtonStyledJS'
+import ButtonTailwindStyle from '../components/Button/ButtonTailwindStyle'
 
 export const DarkMode = createContext(false);
 
@@ -36,6 +39,9 @@ export default function Home() {
 
   return (
     <DarkMode.Provider value={dark}>
+      <ButtonModuleStyle />
+      <ButtonStyledJS />
+      <ButtonTailwindStyle />
       <div className={dark ? 'bg-black text-white' : ''}>
       {posts.map((post) => (
         <div key={post.id}>

@@ -4,68 +4,74 @@ import express, { Request, Response } from 'express';
 // I cannot import from .ts since all of the TS in Node is compiled to JS.
 import { consoleMessage, getExampleMessage } from './helper.js';
 import { logServerMessage } from './logger.js';
+import { dummyData, IStudent } from './dummyData.js';
 
 // create a Node server using express
 const app = express();
 
 // sample data
-let id = 2;
-let users = [
-  { id: 1, name: 'Foxy' },
-  { id: 2, name: 'Gato' },
-];
+let students = [...dummyData];
 
 // middleware provided by express to parse JSON requests
 app.use(express.json());
 
-// GET /users
-app.get('/users', (req: Request, res: Response) => {
-  res.json(users);
+// GET /students
+app.get('/students', (req: Request, res: Response) => {
+  res.json(students);
 });
 
-// GET /users/:id
-app.get('/users/:id', (req: Request, res: Response) => {
-  const userID = parseInt(req.params.id); // because the inputs/body come as string
-  const user = users.find((user) => user.id === userID);
+// GET /students/:id
+app.get('/students/:id', (req: Request, res: Response) => {
+  const studentID = req.params.id; // because the inputs/body come as string
+  const student = students.find((student) => student.id === studentID);
 
-  if (!user) {
-    res.status(404).json({ message: 'User not found' });
+  if (student) {
+    res.json(student); // return a specific resource(user with the id)
   } else {
-    res.json(user);
+    res.status(404).json({ message: 'Student not found' });
   }
 });
 
-// POST /users
-app.post('/users', (req: Request, res: Response) => {
-  const newUser = { id: id++, ...req.body };
-  users.push(newUser);
-  res.status(201).json(newUser);
+// POST /students
+app.post('/students', (req: Request, res: Response) => {
+  // add body validation
+  const newStudent: IStudent = req.body;
+  students.push(newStudent);
+  res.status(201).json(newStudent);
 });
 
-// PUT /users/:id
-app.put('/users/:id', (req: Request, res: Response) => {
-  const userID = parseInt(req.params.id); // because the inputs/body come as string
-  const updateUser = req.body;
+// PUT /students/:id - update student grade
+app.put('/students/:id', (req: Request, res: Response) => {
+  const studentID = req.params.id; // because the inputs/body come as string
+  const studentIndex = students.findIndex(
+    (student) => student.id === studentID
+  );
+  const newGrade = req.body.grade;
 
-  users = users.map((user) => {
-    if (user.id === userID) {
-      return { ...user, ...updateUser };
-    } else {
-      return user;
-    }
-  });
-  res.json(updateUser);
+  if (studentIndex !== -1) {
+    students[studentIndex].grade = newGrade;
+    res.json(students[studentIndex]);
+  } else {
+    res.status(404).json({ message: 'Student not found.' });
+  }
 });
 
-// DELETE /users/:id
-app.delete('/users/:id', (req: Request, res: Response) => {
-  const userID = parseInt(req.params.id);
-  users = users.filter((user) => user.id !== userID);
-  res.json({ message: 'User deleted successfully' });
+// DELETE /students/:id
+app.delete('/students/:id', (req: Request, res: Response) => {
+  const studentID = req.params.id;
+  const studentIndex = students.findIndex(
+    (student) => student.id === studentID
+  );
+
+  if (studentIndex !== -1) {
+    students.splice(studentIndex, 1);
+    res.json(204).send();
+  } else {
+    res.status(404).json({ message: 'Student not found.' });
+  }
 });
 
 // Start the server
-
 app.listen(port, () => {
   console.log(consoleMessage);
   logServerMessage('This server is logging at: ');

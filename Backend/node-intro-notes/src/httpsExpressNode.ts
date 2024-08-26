@@ -1,15 +1,20 @@
-import * as https from 'https';
-import * as fs from 'fs';
+import https from 'https';
+import fs from 'fs';
 import express from 'express'
-import router from './routers.js';
+import router from './router-httpsExpressNode.js';
 
 const app = express()
+
+app.use(express.urlencoded({
+  extended: true
+}))
+app.use(express.json())
 
 app.use(router)
 
 const options = {
-  key: fs.readFileSync('../cert/server.key'),
-  cert: fs.readFileSync('../cert/server.cert'),
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert'),
 };
 
 // app as a second argument means all incoming requests to the HTTPS server are routed through
@@ -19,5 +24,5 @@ const options = {
 const expressServer = https.createServer(options, app)
 
 expressServer.listen(443, () => {
-  console.log('The https server is running');
+  console.log('The https server is running...');
 });

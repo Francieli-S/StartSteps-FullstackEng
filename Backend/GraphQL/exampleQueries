@@ -1,7 +1,9 @@
 mutation ExampleMutation {
-  firstBook: addBook(input:{title: "new book 11", author:"new author"}){
+  firstBook: addBook(input:{title: "new book 11", author: "new author", genre: FICTION, publishedDate: "2024-10-10"}){
     id
     title
+    genre
+    publishedDate
   }
   addBook(input:{title: "new book 15", author:"new author"}){
     id

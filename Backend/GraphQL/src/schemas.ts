@@ -8,7 +8,9 @@ const typeDefs = gql`
         MYSTERY
         THRILLER
     }
-
+    
+    # create a custom scalar, just add it here as a 'name',
+    # and in the resolver it is handled usinf serialize and parseValue.
     scalar Date
 
     type Book {

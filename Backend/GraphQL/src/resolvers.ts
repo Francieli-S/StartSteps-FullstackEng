@@ -4,23 +4,22 @@ import books from "./data.js";
 import { ApolloError } from "apollo-server-express";
 import {GraphQLScalarType} from "graphql";
 
-const date = "1-10-2021";
-const dateObject = new Date(date);
-dateObject.getDay();
-
+// const date = "1-10-2021";
+// const dateObject = new Date(date);
+// dateObject.getDay();
 
 const dateScalar = new GraphQLScalarType({
     name: "Date",
     description: "Date custom scalar type",
     serialize(value: Date | unknown) {
-        //GraphQL will use this when we send data to the client
+        // To the client from the server
         if(!(value instanceof Date)) {
             throw new TypeError("Date cannot represent an invalid Date instance");
         }
         return value.toISOString();
     },
     parseValue(value: string | unknown) {
-        //GraphQL will use this when we send data to the server from the client
+        // To the server from the client
         if(typeof value !== "string") {
             throw new TypeError("Date cannot represent an invalid Date instance");
         }

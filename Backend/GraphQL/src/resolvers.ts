@@ -31,9 +31,9 @@ const dateScalar = new GraphQLScalarType({
 export const resolvers = {
     Date: dateScalar,
     Query: {
-        book: (_, {id}: {id: string}): Book| undefined => {
+        book: (_, {id}: {id: string}): Book | undefined => {
             const book: Book = books.find((book) => book.id === id)
-            const day = book.publishedDate.getDay(); // we can use this as we are saving data as "new Date" object in parseValue
+            const day = book.publishedDate && book.publishedDate.getDay(); // we can use this as we are saving data as "new Date" object in parseValue
             return book;
         }
             

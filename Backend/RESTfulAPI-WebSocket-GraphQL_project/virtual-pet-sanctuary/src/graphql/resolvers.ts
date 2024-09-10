@@ -5,7 +5,8 @@ import petModule from '../petData.js'
 
 const resolvers = {
   Query: {
-    pets: () => petModule.getPets()
+    pets: () => petModule.getPets(),
+    pet: (_: any, {id}: {id: number}) => petModule.getPet(+id),
   }
 }
 

@@ -8,8 +8,6 @@ const createPet = (req: Request, res: Response, next: Function) => {
     res.status(400).send('Name and species are required');
     return;
   }
-// add validation to not accept props that are not part of the type, like age
-  // if ()
   next();
 };
 

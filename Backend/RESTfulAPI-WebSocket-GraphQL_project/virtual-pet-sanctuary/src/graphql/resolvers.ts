@@ -2,7 +2,7 @@ import petModule from '../petData.js';
 import { PetInput } from '../types.js';
 
 // the resolver is an object that constains the functions
-// act like controllers in graphql
+// acts like controllers in graphql
 
 const resolvers = {
   Query: {

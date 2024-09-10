@@ -24,9 +24,9 @@ const createPet = (req:Request, res:Response) => {
 };
 
 const updatePetHappiness = (req:Request, res:Response) => {
-    const id = parseInt(req.params.id);
-    const happiness = parseInt(req.body.happiness);
-    const pet = petModule.updatePetHappiness(id, happiness);
+    const id = req.params.id;
+    const happiness = req.body.happiness;
+    const pet = petModule.updatePetHappiness(+id, happiness);
     if (pet) {
         res.json(pet);
     } else {

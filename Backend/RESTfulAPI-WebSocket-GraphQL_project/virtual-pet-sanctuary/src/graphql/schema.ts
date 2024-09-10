@@ -10,16 +10,23 @@ const typeDefs = gql`
     size: String
   }
 
+  input PetInput {
+    name: String!
+    species: String!
+    color: String
+    size: String
+  }
+
   type Query {
     pets: [Pet!]!
     pet(id: ID!): Pet
   }
 
-  # type Mutation {
-  #   createPet(name: String!, species: String!): Pet
-  #   updatePetHappiness((id: ID!, happiness: Int!)): Pet
-  #   delete(id: ID!): Pet
-  # }
+  type Mutation {
+    createPet(pet: PetInput): Pet!
+    updatePetHappiness(id: ID!, happiness: Int!): Pet
+    delete(id: ID!): Pet
+  }
 `;
 
 export default typeDefs;

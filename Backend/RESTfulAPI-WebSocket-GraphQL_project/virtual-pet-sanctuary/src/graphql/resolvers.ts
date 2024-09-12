@@ -1,5 +1,9 @@
+import { subscribe } from 'diagnostics_channel';
 import petModule from '../petData.js';
 import { PetInput } from '../types.js';
+import { PubSub } from 'graphql-subscriptions';
+
+const pubsub = new PubSub();
 
 // the resolver is an object that constains the functions
 // acts like controllers in graphql
@@ -18,10 +22,26 @@ const resolvers = {
       _: any,
       { id, happiness }: { id: string; happiness: number }
     ) {
-      return petModule.updatePetHappiness(+id, happiness);
+      const updatedPet = petModule.updatePetHappiness(+id, happiness);
+      // the ws server send a message to all users subscribed to this
+      pubsub.publish('PET_HAPPINESS_UPDATED', {
+        petHappinessUpdated: updatedPet,
+      });
+      return updatedPet;
     },
     delete(_: any, { id }: { id: string }) {
-      return petModule.deletePet(+id);
+      const deletedPet = petModule.deletePet(+id);
+      pubsub.publish('PET_DELETED', { petDeleted: deletedPet });
+      return deletedPet;
+    },
+  },
+
+  Subscription: {
+    petHappinessUpdated: {
+      subscribe: () => pubsub.asyncIterator(['PET_HAPPINESS_UPDATED']), // the client has subscribed to this event
+    },
+    petDeleted: {
+      subscribe: () => pubsub.asyncIterator(['PET_DELETED']),
     },
   },
 };

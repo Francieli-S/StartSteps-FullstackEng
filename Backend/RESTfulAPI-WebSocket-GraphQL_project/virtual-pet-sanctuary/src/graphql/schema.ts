@@ -27,6 +27,11 @@ const typeDefs = gql`
     updatePetHappiness(id: ID!, happiness: Int!): Pet
     delete(id: ID!): Pet
   }
+
+  type Subscription {
+    petHappinessUpdated: Pet
+    petDeleted: Pet
+  }
 `;
 
 export default typeDefs;
